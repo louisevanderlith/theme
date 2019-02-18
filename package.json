@@ -1,0 +1,20 @@
+{
+  "name": "theme",
+  "version": "1.0.0",
+  "description": "Holds website theme info for mango modules.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louisevanderlith/theme.git"
+  },
+  "author": "Louise van der Lith",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/louisevanderlith/theme/issues"
+  },
+  "homepage": "https://github.com/louisevanderlith/theme#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat-css": "^3.1.0"
+  }
+}
