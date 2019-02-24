@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"strings"
+
 	"github.com/louisevanderlith/mango/control"
 	"github.com/louisevanderlith/theme/core"
 )
@@ -18,9 +20,8 @@ func NewAssetCtrl(ctrlMap *control.ControllerMap) *AssetController {
 
 // @Title GetAsset
 // @Description Gets the requested asset
-// @Param	appID			path	string 	true		"the application requesting a service"
-// @Param	serviceName		path 	string	true		"the name of the service you want to get"
-// @Param	clean			path 	bool	false		"clean will return a user friendly URL and not the application's actual URL"
+// @Param	group			path	string 	true		"the group name like css, js, html"
+// @Param	file		path 	string	true		"full filename /html/master.entry.html"
 // @Success 200 {string} string
 // @Failure 403 :asstype or :file is empty
 // @router /:group/:file [get]
@@ -29,5 +30,34 @@ func (req *AssetController) Get() {
 	fileName := req.Ctx.Input.Param(":file")
 
 	res, err := core.FindAsset(group, fileName)
-	req.Serve(res, err)
+
+	if err != nil {
+		panic(err)
+	}
+
+	mimes := make(map[string]string)
+	mimes["js"] = "text/javascript"
+	mimes["css"] = "text/css"
+	mimes["html"] = "text/html"
+	mimes["ico"] = "image/x-icon"
+	mimes["font"] = "font/" + getExt(fileName)
+
+	req.ServeBinaryWithMIME(res, fileName, mimes[group])
+}
+
+// @Title GetAsset List
+// @Description Lists the assets in a group
+// @Param	group			path	string 	true		"the group name like css, js, html"
+// @Success 200 {string} string
+// @Failure 403 :asstype or :file is empty
+// @router /:group [get]
+func (req *AssetController) GetAll() {
+	group := req.Ctx.Input.Param(":group")
+
+	req.Serve(core.ListAssets(group))
+}
+
+func getExt(filename string) string {
+	dotIndex := strings.LastIndex(filename, ".")
+	return filename[dotIndex+1:]
 }

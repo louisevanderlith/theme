@@ -19,6 +19,7 @@ import (
 func Setup(s *mango.Service) {
 	ctrlmap := EnableFilter(s)
 
+	beego.Router("/v1/asset/:group", controllers.NewAssetCtrl(ctrlmap), "get:GetAll")
 	beego.Router("/v1/asset/:group/:file", controllers.NewAssetCtrl(ctrlmap), "get:Get")
 }
 

@@ -15,6 +15,13 @@ func main() {
 	appName := beego.BConfig.AppName
 	srv := mango.NewService(mode, appName, enums.API)
 
+	port := beego.AppConfig.String("httpport")
+	err := srv.Register(port)
+
+	if err != nil {
+		panic(err)
+	}
+
 	routers.Setup(srv)
 	beego.Run()
 }
