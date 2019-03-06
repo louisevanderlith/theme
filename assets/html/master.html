@@ -10,14 +10,14 @@
     <link rel="shortcut icon" href="https://theme.localhost/v1/asset/ico/favicon.ico" type="image/x-icon">
     <link rel="icon" href="https://theme.localhost/v1/asset/ico/favicon.ico" type="image/x-icon">
 
-    <title>{{.Title}}</title>
+    <title>{{.Data.Title}}</title>
 
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
     <link rel="stylesheet" href="https://theme.localhost/v1/asset/css/bundle.css">
-
+    
 </head>
 
 <body>
@@ -26,7 +26,7 @@
             <div class="row row-offcanvas row-offcanvas-left">
                 <!-- sidebar -->
                 {{ template "_shared/sidebar.html" . }}
-                <div class="column col-sm-10 col-xs-11" id="main">
+                <div class="column col-sm-11 col-xs-11" id="main">
                     <!--nav-->
                     {{ template "_shared/navigation.html" . }}
 
@@ -45,8 +45,8 @@
                 </div>
             </div>
         </div>
-        {{ template "_shared/footer.html" . }}
         <!--modal footer-->
+        {{ template "_shared/modal.html" . }}
     </div>
 
     <!--scrips footer-->

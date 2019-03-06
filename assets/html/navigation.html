@@ -6,7 +6,6 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a href="#" class="navbar-brand logo glyphicon glyphicon-font"></a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
         <form class="navbar-form navbar-left">
@@ -21,13 +20,14 @@
         </form>
         <ul class="nav navbar-nav">
             {{range $key, $val := .TopMenu}}
-                <li {{if $val.Children}}class="dropdown"{{end}}> 
-                    <a href="{{if $val.Link }}{{$val.Link}} {{else}} # {{end}}" {{if $val.Children}}class="dropdown-toggle" data-toggle="dropdown"{{end}}>
-                        <i class="{{$val.Class}}"></i>{{$val.Name}}
-                    </a>
-                </li>
+            <li {{if $val.Children}}class="dropdown" {{end}}>
+                <a href="{{if $val.Link }}{{$val.Link}} {{else}} # {{end}}" {{if $val.Children}}class="dropdown-toggle"
+                    data-toggle="dropdown" {{end}}>
+                    <i class="{{$val.Class}}"></i>{{$val.Name}}
+                </a>
+            </li>
 
-                <!--{{if $val.Children}}
+            <!--{{if $val.Children}}
                 <ul class="dropdown-menu">
                     {{range $ckey, $cval := $val.Children }}
                         <li>
