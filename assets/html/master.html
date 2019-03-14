@@ -51,21 +51,12 @@
 
     <!--scrips footer-->
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://theme.localhost/v1/asset/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    
     {{ if .HasScript }}
     <script type="text/javascript" src="/dist/js/{{.ScriptName}}"></script> {{ end }}
 
     <script type="text/javascript" src="https://theme.localhost/v1/asset/js/master.entry.js"></script>
-
-    <script type='text/javascript' src="https://theme.localhost/v1/asset/js/bootstrap.min.js"
-        crossorigin="anonymous"></script>
-    <script type='text/javascript'>
-        var instanceID = {{ .InstanceID }};
-    </script>
+    <input type="hidden" id="InstanceID" value="{{ .InstanceID }}"/>
 </body>
 
 </html>

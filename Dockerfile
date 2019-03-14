@@ -44,7 +44,6 @@ COPY --from=pyltjie /arrow/assets/js dist/js
 COPY --from=styler /scissor/dist/css dist/css
 COPY conf conf
 
-COPY assets/js dist/js
 COPY assets/html dist/html
 COPY assets/fonts dist/fonts
 COPY assets/ico dist/ico
