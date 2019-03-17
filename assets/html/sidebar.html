@@ -1,4 +1,5 @@
 <div class="column col-sm-1 col-xs-1 sidebar-offcanvas" id="sidebar">
+    <img src="https://theme{{.Host}}v1/asset/img/logo.png" alt="logo">
     <ul class="nav">
         <li>
             <a href="#" data-toggle="offcanvas" class="visible-xs text-center">
@@ -7,15 +8,12 @@
         </li>
     </ul>
     <ul class="nav hidden-xs" id="lg-menu">
-        <li class="logoli"> 
-            <img src="https://theme.localhost/v1/asset/img/logo.png" alt="logo">
-        </li>
         {{range $key, $val := .SideMenu}}
 
         <li>
-            <a href="#{{$key}}" data-toggle="collapse">
+            <span data-href="#{{$key}}" data-toggle="collapse">
                 <i class="{{$val.Class}}"></i>{{$val.Name}}
-            </a>
+            </span>
         </li>
 
         <ul id="{{$key}}" class="panel-collapse collapse">

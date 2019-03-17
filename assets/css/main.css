@@ -89,7 +89,7 @@ hr {
 
 .navbar-blue {
   border-width: 0;
-  background-color: #00979a;
+  background-image: linear-gradient(to right,  #0b0f18, #0a1e27, #063d44, #05525a, #037d92, #009098);
   color: #ffffff;
   font-family: sansation_lightregular, sans-serif;
   top: 0;
@@ -274,7 +274,7 @@ h1, h2, h3 {
     padding-top: 20px;
   }
   .navbar-blue {
-    background-image: linear-gradient(to bottom right, #037d92, #00a49c, #01a29c);
+    background-image: linear-gradient(to right,  #0b0f18, #0a1e27, #063d44, #05525a, #037d92, #009098);
     top: 0;
     width: 100%;
     position: relative;

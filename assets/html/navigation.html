@@ -8,7 +8,7 @@
         </button>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
-        <form class="navbar-form navbar-left">
+        <!--<form class="navbar-form navbar-left">
             <div class="input-group input-group-sm" style="max-width:360px;">
                 <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
                 <div class="input-group-btn">
@@ -17,13 +17,13 @@
                     </button>
                 </div>
             </div>
-        </form>
+        </form>-->
         <ul class="nav navbar-nav">
             {{range $key, $val := .TopMenu}}
             <li {{if $val.Children}}class="dropdown" {{end}}>
                 <a href="{{if $val.Link }}{{$val.Link}} {{else}} # {{end}}" {{if $val.Children}}class="dropdown-toggle"
                     data-toggle="dropdown" {{end}}>
-                    <i class="{{$val.Class}}"></i>{{$val.Name}}
+                    <i class="{{$val.Class}}"></i>&nbsp;{{$val.Name}}
                 </a>
             </li>
 
@@ -41,7 +41,7 @@
             {{end}}
         </ul>
 
-        <ul class="nav navbar-nav navbar-right">
+        <!--<ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="glyphicon glyphicon-user"></i>
@@ -64,6 +64,6 @@
                     </li>
                 </ul>
             </li>
-        </ul>
+        </ul>-->
     </nav>
 </div>

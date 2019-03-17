@@ -6,8 +6,10 @@ void main() {
 
 void registerEvents() {
   var offcanvas = querySelector("[data-toggle=offcanvas]");
-
   offcanvas.onClick.listen(click_OffCanvas);
+
+  var menuSub = querySelectorAll('[data-toggle=collapse]');
+  menuSub.onClick.listen(click_Collapse);
 }
 
 void click_OffCanvas(Event e) {
@@ -29,4 +31,13 @@ void click_OffCanvas(Event e) {
   var btnShow = querySelector("#btnShow");
 
   btnShow.hidden = !btnShow.hidden;
+}
+
+void click_Collapse(MouseEvent e) {
+  if (e.target is Element) {
+    Element matchingTarget = e.target;
+    var panelID = matchingTarget.dataset["href"];
+    var panel = querySelector(panelID);
+    panel.classes.toggle("collapse");
+  }
 }
