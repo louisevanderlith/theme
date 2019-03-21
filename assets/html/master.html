@@ -5,10 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
     <meta name="author" content="avosa software">
     <link rel="shortcut icon" href="https://theme{{.Host}}v1/asset/ico/favicon.ico" type="image/x-icon">
     <link rel="icon" href="https://theme{{.Host}}v1/asset/ico/favicon.ico" type="image/x-icon">
+    <title>{{.Title}}</title>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
     <meta property="og:title" content="{{.Title}}">
     <meta property="og:type" content="website">
@@ -16,49 +20,25 @@
     <meta property="og:url" content="https://www{{.Host}}">
     <meta property="og:description" content="">
 
-
-    <title>{{.Title}}</title>
-
-    <!--[if lt IE 9]>
-    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
     <link rel="stylesheet" href="https://theme{{.Host}}v1/asset/css/bundle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="box">
-            <div class="row row-offcanvas row-offcanvas-left">
-                <!-- sidebar -->
-                {{ template "_shared/sidebar.html" . }}
-                <div class="column col-sm-11 col-xs-11" id="main">
-                    <!--nav-->
-                    {{ template "_shared/navigation.html" . }}
-
-                    <div class="padding">
-                        <div class="full col-sm-9">
-
-                            <!-- content -->
-                            <div class="row">
-                                {{.LayoutContent}}
-                            </div>
-                            <!--/row-->
-                        </div>
-                        <!-- /col-9 -->
-                    </div>
-                    <!-- /padding -->
-                </div>
-            </div>
-        </div>
-        <!--modal footer-->
-        {{ template "_shared/modal.html" . }}
+        <div></div>
+        <div></div>
+        <div><img src="https://theme{{.Host}}v1/asset/img/logo.png" alt="logo"></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="wrapper content">
+        {{.LayoutContent}}
+    </div>
+    <div class="wrapper footer">
+        <div><a href="https://avosa.co.za">avosa.co.za</a></div>
     </div>
 
-    <!--scrips footer-->
-    <!-- Bootstrap core JavaScript -->
-    
     {{ if .HasScript }}
     <script type="text/javascript" src="/dist/js/{{.ScriptName}}"></script> {{ end }}
 
