@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'sansation_lightregular';
+    src: url('../fonts/sansation_light-webfont.woff2') format('woff2'), url('../fonts/sansation_light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: sansation_lightregular, sans-serif;
+}
+
+body::after {
+    content: "";
+    background: url('../img/logo.png');
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+a {
+    color: #0a0e17;
+    text-decoration: none;
+}
+
+input {
+    border: none;
+    color: #0a0e17;
+    font-size: 0.6em;
+    padding: 10px;
+    background-color: transparent;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #009098;
+}
+
+textarea {
+    border: none;
+    color: #0a0e17;
+    font-size: 0.6em;
+    padding: 10px;
+    background-color: transparent;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #009098;
+}
+
+button {
+    border: none;
+    color: #bdbec0;
+    font-size: 1em;
+    padding: 6px;
+    background-color: #009098;
+    margin: 5px;
+    border-bottom: 1px solid #009098;
+}
+
+button[disabled] {
+    color: #949599;
+    background-color: #063d44;
+}
+
+h1 {
+    color: #009899
+}
+
+h2 {
+    color: #0a0e17;
+}
+
+h3 {
+    color: orangered;
+}

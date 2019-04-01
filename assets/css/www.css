@@ -1,0 +1,7 @@
+.sociallinks {
+    list-style-type: none;
+}
+
+.sociallinks>li {
+    float: right;
+}
