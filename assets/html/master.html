@@ -2,17 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="avosa software">
+    <title>{{.Title}}Band Template</title>
     <link rel="shortcut icon" href="https://theme{{.Host}}v1/asset/ico/favicon.ico" type="image/x-icon">
     <link rel="icon" href="https://theme{{.Host}}v1/asset/ico/favicon.ico" type="image/x-icon">
-    <title>{{.Title}}</title>
-
-    <!--[if lt IE 9]>
-    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 
     <meta property="og:title" content="{{.Title}}">
     <meta property="og:type" content="website">
@@ -20,24 +17,73 @@
     <meta property="og:url" content="https://www{{.Host}}">
     <meta property="og:description" content="">
 
-    <link rel="stylesheet" href="https://theme{{.Host}}v1/asset/css/bundle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="https://theme{{.Host}}v1/asset/css/bundle.css" />
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
 </head>
 
 <body>
-    <div class="wrapper content">
-        {{.LayoutContent}}
-    </div>
-    <div class="wrapper footer">
-        <div><a href="https://avosa.co.za">avosa.co.za</a></div>
-    </div>
+    <nav class="navbar is-dark">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+                <img src="https://theme{{.Host}}v1/asset/img/logo.png" alt="{{.Data.Title}}">
+            </a>
+            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-start">
+                {{range $key, $val := .TopMenu}}
+                <a class="navbar-item" href="{{if $val.Link }}{{$val.Link}} {{else}} # {{end}}">
+                    {{$val.Name}}
+                </a>
+                {{end}}
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link" href="/documentation/overview/start/">
+                        More
+                    </a>
+                    <div class="navbar-dropdown is-boxed">
+                        <a class="navbar-item" href="/documentation/overview/start/">
+                            Mechandise
+                        </a>
+                        <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
+                            Extras
+                        </a>
+                        <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
+                            Media
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="text" placeholder="search . . .">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {{.LayoutContent}}
 
     {{ if .HasScript }}
     <script type="text/javascript" src="/dist/js/{{.ScriptName}}"></script> {{ end }}
 
     <script type="text/javascript" src="https://theme{{.Host}}v1/asset/js/master.entry.js"></script>
-    <input type="hidden" id="InstanceID" value="{{ .InstanceID }}"/>
-    <input type="hidden" id="HostID" value="{{ .Host }}"/>
+
+    <input type="hidden" id="InstanceID" value="{{ .InstanceID }}" />
+    <input type="hidden" id="HostID" value="{{ .Host }}" />
 </body>
 
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="avosa software">
+    <link rel="shortcut icon" href="https://theme{{.Host}}v1/asset/ico/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://theme{{.Host}}v1/asset/ico/favicon.ico" type="image/x-icon">
+    <title>{{.Title}}</title>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta property="og:title" content="{{.Title}}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://artifact.avosa.co.za/v1/upload/file/10">
+    <meta property="og:url" content="https://www{{.Host}}">
+    <meta property="og:description" content="">
+
+    <link rel="stylesheet" href="https://theme{{.Host}}v1/asset/css/bundle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="wrapper content">
+        {{.LayoutContent}}
+    </div>
+    <div class="wrapper footer">
+        <div><a href="https://avosa.co.za">avosa.co.za</a></div>
+    </div>
+
+    {{ if .HasScript }}
+    <script type="text/javascript" src="/dist/js/{{.ScriptName}}"></script> {{ end }}
+
+    <script type="text/javascript" src="https://theme{{.Host}}v1/asset/js/master.entry.js"></script>
+    <input type="hidden" id="InstanceID" value="{{ .InstanceID }}"/>
+    <input type="hidden" id="HostID" value="{{ .Host }}"/>
+</body>
+
+</html>

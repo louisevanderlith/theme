@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'sansation_lightregular';
+    src: url('../fonts/sansation_light-webfont.woff2') format('woff2'), url('../fonts/sansation_light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: sansation_lightregular, sans-serif;
+}
