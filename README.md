@@ -1,6 +1,8 @@
 # theme
 The Template, CSS and JS for Mango modules.
 
+Use https://dansup.github.io/bulma-templates/ as reference.
+
 ## Run with Docker
 * $ docker build -t avosa/theme:latest .
 * $ docker rm ThemeDEV
