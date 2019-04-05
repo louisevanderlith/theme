@@ -1,0 +1,14 @@
+{{range $key, $val := .TopMenu}}
+<div class="navbar-item {{if $val.Children}} has-dropdown is-hoverable {{end}}">
+    <a class="navbar-link" href="{{if $val.Link }}{{$val.Link}} {{else}} # {{end}}">{{$val.Name}}</a>
+    {{if $val.Children}}
+    <div class="navbar-dropdown is-boxed">
+        {{range $ckey, $cval := $val.Children }}
+        <a class="navbar-item" href="{{if $cval.Link }}{{$cval.Link}} {{else}} # {{end}}">
+            {{$cval.Name}}
+        </a>
+        {{end}}
+    </div>
+    {{end}}
+</div>
+{{end}}
