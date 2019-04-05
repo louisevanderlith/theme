@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="author" content="avosa software">
-    <title>{{.Title}}Band Template</title>
+    <title>{{.Title}}</title>
     <link rel="shortcut icon" href="https://theme{{.Host}}v1/asset/ico/favicon.ico" type="image/x-icon">
     <link rel="icon" href="https://theme{{.Host}}v1/asset/ico/favicon.ico" type="image/x-icon">
 
@@ -28,8 +28,8 @@
 <body>
     <nav class="navbar is-dark">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <img src="https://theme{{.Host}}v1/asset/img/logo.png" alt="{{.Data.Title}}">
+            <a class="navbar-item" href="https://www{{.Host}}">
+                <img src="https://theme{{.Host}}v1/asset/img/logo.png" alt="{{.Title}}">
             </a>
             <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
                 <span></span>
@@ -40,50 +40,40 @@
 
         <div id="navbarExampleTransparentExample" class="navbar-menu">
             <div class="navbar-start">
-                {{range $key, $val := .TopMenu}}
-                <a class="navbar-item" href="{{if $val.Link }}{{$val.Link}} {{else}} # {{end}}">
-                    {{$val.Name}}
-                </a>
-                {{end}}
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link" href="/documentation/overview/start/">
-                        More
-                    </a>
-                    <div class="navbar-dropdown is-boxed">
-                        <a class="navbar-item" href="/documentation/overview/start/">
-                            Mechandise
-                        </a>
-                        <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
-                            Extras
-                        </a>
-                        <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-                            Media
-                        </a>
-                    </div>
-                </div>
+                {{ template "_shared/topmenu.html" .}}
             </div>
 
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="field">
                         <div class="control">
-                            <input class="input" type="text" placeholder="search . . .">
+                            <!--TODO: Enable searching <input class="input" type="text" placeholder="search...">-->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
+    <section class="section">
+        {{if .SideMenu }}
+        <div class="columns is-gapless">
+            <div class="column is-1">
+                {{ template "_shared/sidemenu.html" .}}
+            </div>
+            <div class="column is-11">
+                {{.LayoutContent}}
+            </div>
+        </div>
+        {{else}}
+        {{.LayoutContent}}
+        {{end}}
+        </div>
 
-    {{.LayoutContent}}
+        <input type="hidden" id="InstanceID" value="{{ .InstanceID }}" />
+        <input type="hidden" id="HostID" value="{{ .Host }}" />
 
-    {{ if .HasScript }}
-    <script type="text/javascript" src="/dist/js/{{.ScriptName}}"></script> {{ end }}
-
-    <script type="text/javascript" src="https://theme{{.Host}}v1/asset/js/master.entry.js"></script>
-
-    <input type="hidden" id="InstanceID" value="{{ .InstanceID }}" />
-    <input type="hidden" id="HostID" value="{{ .Host }}" />
+        {{ template "_shared/scripts.html" .}}
+        {{template "_shared/modal.html"}}
 </body>
 
 </html>

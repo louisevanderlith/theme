@@ -23,7 +23,6 @@ COPY package-lock.json .
 RUN npm install
 
 COPY gulpfile.js .
-COPY .babelrc .
 COPY assets/css ./assets/css
 
 RUN gulp
