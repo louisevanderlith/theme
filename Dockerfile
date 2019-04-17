@@ -23,7 +23,6 @@ COPY package-lock.json .
 RUN npm install
 
 COPY gulpfile.js .
-COPY .babelrc .
 COPY assets/css ./assets/css
 
 RUN gulp
@@ -37,7 +36,7 @@ RUN mkdir -p assets/js
 COPY compiledart.sh .
 RUN sh ./compiledart.sh
 
-FROM alpine:latest
+FROM scratch
 
 COPY --from=builder /box/theme .
 COPY --from=pyltjie /arrow/assets/js dist/js

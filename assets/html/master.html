@@ -2,69 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
     <meta name="author" content="avosa software">
+    <title>{{.Title}}</title>
     <link rel="shortcut icon" href="https://theme{{.Host}}v1/asset/ico/favicon.ico" type="image/x-icon">
     <link rel="icon" href="https://theme{{.Host}}v1/asset/ico/favicon.ico" type="image/x-icon">
 
     <meta property="og:title" content="{{.Title}}">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://artifact.avosa.co.za/v1/upload/file/10">
+    <meta property="og:image" content="https://theme{{.Host}}v1/asset/img/logo.png">
     <meta property="og:url" content="https://www{{.Host}}">
     <meta property="og:description" content="">
-
-
-    <title>{{.Title}}</title>
 
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" href="https://theme{{.Host}}v1/asset/css/bundle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="https://theme{{.Host}}v1/asset/css/bundle.css" />
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="box">
-            <div class="row row-offcanvas row-offcanvas-left">
-                <!-- sidebar -->
-                {{ template "_shared/sidebar.html" . }}
-                <div class="column col-sm-11 col-xs-11" id="main">
-                    <!--nav-->
-                    {{ template "_shared/navigation.html" . }}
+    <nav class="navbar is-dark">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://www{{.Host}}">
+                <img src="https://theme{{.Host}}v1/asset/img/logo.png" alt="{{.Title}}">
+            </a>
+            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
 
-                    <div class="padding">
-                        <div class="full col-sm-9">
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-start">
+                {{ template "_shared/topmenu.html" .}}
+            </div>
 
-                            <!-- content -->
-                            <div class="row">
-                                {{.LayoutContent}}
-                            </div>
-                            <!--/row-->
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field">
+                        <div class="control">
+                            <!--TODO: Enable searching <input class="input" type="text" placeholder="search...">-->
                         </div>
-                        <!-- /col-9 -->
                     </div>
-                    <!-- /padding -->
                 </div>
             </div>
         </div>
-        <!--modal footer-->
-        {{ template "_shared/modal.html" . }}
-    </div>
+    </nav>
+    <section class="section">
+        {{if .SideMenu }}
+        <div class="columns is-gapless">
+            <div class="column is-1">
+                {{ template "_shared/sidemenu.html" .}}
+            </div>
+            <div class="column is-11">
+                {{.LayoutContent}}
+            </div>
+        </div>
+        {{else}}
+        {{.LayoutContent}}
+        {{end}}
+        </div>
 
-    <!--scrips footer-->
-    <!-- Bootstrap core JavaScript -->
-    
-    {{ if .HasScript }}
-    <script type="text/javascript" src="/dist/js/{{.ScriptName}}"></script> {{ end }}
+        <input type="hidden" id="InstanceID" value="{{ .InstanceID }}" />
+        <input type="hidden" id="HostID" value="{{ .Host }}" />
 
-    <script type="text/javascript" src="https://theme{{.Host}}v1/asset/js/master.entry.js"></script>
-    <input type="hidden" id="InstanceID" value="{{ .InstanceID }}"/>
-    <input type="hidden" id="HostID" value="{{ .Host }}"/>
+        {{ template "_shared/scripts.html" .}}
+        {{template "_shared/modal.html"}}
 </body>
 
 </html>

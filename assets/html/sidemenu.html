@@ -1,0 +1,21 @@
+<aside class="menu is-hidden-mobile">
+    {{range $key, $val := .SideMenu}}
+    <p class="menu-label">
+        {{$val.Name}}
+    </p>
+    <ul class="menu-list">
+        {{range $ckey, $cval := $val.Children }}
+        <li><a href="{{$cval.Link}}">{{$cval.Name}}</a></li>
+        {{end}}
+        <!--More children 
+            <li>
+            <a>Manage Your Team</a>
+            <ul>
+                <li><a>Members</a></li>
+                <li><a>Plugins</a></li>
+                <li><a>Add a member</a></li>
+            </ul>
+        </li>-->
+    </ul>
+    {{end}}
+</aside>
