@@ -42,9 +42,6 @@ func (req *AssetController) Get() {
 	mimes["ico"] = "image/x-icon"
 	mimes["font"] = "font/" + getExt(fileName)
 
-	//TODO: Remove, and rather use Artifact.API
-	mimes["img"] = "image/png"
-
 	req.ServeBinaryWithMIME(res, fileName, mimes[group])
 }
 
