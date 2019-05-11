@@ -10,4 +10,4 @@ function css() {
 }
 
 exports.css = series(css)
-exports.default = parallel(series(css))
+exports.default = css;
