@@ -1,9 +1,13 @@
-FROM golang:1.11 AS builder
+FROM golang:1.11 as build_base
 
 WORKDIR /box
+
 COPY go.mod .
 COPY go.sum .
+
 RUN go mod download
+
+FROM build_base as builder
 
 COPY main.go .
 COPY controllers ./controllers
@@ -24,7 +28,7 @@ RUN npm install
 
 COPY gulpfile.js .
 COPY assets/css ./assets/css
-
+RUN gulp --tasks
 RUN gulp
 
 FROM google/dart AS pyltjie

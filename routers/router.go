@@ -29,7 +29,9 @@ func EnableFilter(s *mango.Service) *control.ControllerMap {
 
 	emptyMap := make(secure.ActionMap)
 
-	ctrlmap.Add("/asset", emptyMap)
+	ctrlmap.Add("/v1/asset", emptyMap)
+
+	beego.InsertFilter("/v1/*", beego.BeforeRouter, ctrlmap.FilterAPI)
 
 	beego.InsertFilter("*", beego.BeforeRouter, cors.Allow(&cors.Options{
 		AllowAllOrigins: true,
