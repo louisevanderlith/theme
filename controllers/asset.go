@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"net/http"
 	"strings"
 
 	"github.com/louisevanderlith/mango/control"
@@ -53,8 +54,14 @@ func (req *AssetController) Get() {
 // @router /:group [get]
 func (req *AssetController) GetAll() {
 	group := req.Ctx.Input.Param(":group")
+	assests, err := core.ListAssets(group)
 
-	req.Serve(core.ListAssets(group))
+	if err != nil {
+		req.Serve(http.StatusNotFound, err, nil)
+		return
+	}
+
+	req.Serve(http.StatusOK, nil, assests)
 }
 
 func getExt(filename string) string {

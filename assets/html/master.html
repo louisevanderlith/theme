@@ -61,18 +61,18 @@
                 {{ template "_shared/sidemenu.html" .}}
             </div>
             <div class="column is-11">
-                {{.LayoutContent}}
+                {{ template "_shared/content.html" .}}
             </div>
         </div>
         {{else}}
-        {{.LayoutContent}}
+        {{ template "_shared/content.html" .}}
         {{end}}
     </section>
     <input type="hidden" id="InstanceID" value="{{ .InstanceID }}" />
     <input type="hidden" id="HostID" value="{{ .Host }}" />
 
     {{ template "_shared/scripts.html" .}}
-    {{template "_shared/modal.html"}}
+    {{ template "_shared/modal.html"}}
 </body>
 
 </html>
