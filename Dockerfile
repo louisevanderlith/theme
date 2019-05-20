@@ -32,18 +32,20 @@ RUN gulp --tasks
 RUN gulp
 
 FROM google/dart AS pyltjie
+ENV PATH="$PATH:/root/.pub-cache/bin"
 
 WORKDIR /arrow
-COPY assets/dart ./assets/dart
+COPY web ./web
+COPY pubspec.yaml pubspec.yaml
 
-RUN mkdir -p assets/js
-COPY compiledart.sh .
-RUN sh ./compiledart.sh
+RUN pub global activate webdev
+RUN pub get
+RUN webdev build
 
 FROM scratch
 
 COPY --from=builder /box/theme .
-COPY --from=pyltjie /arrow/assets/js dist/js
+COPY --from=pyltjie /arrow/build/*.dart.js dist/js/
 COPY --from=styler /scissor/dist/css dist/css
 COPY conf conf
 
