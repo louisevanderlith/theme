@@ -2,13 +2,15 @@ import 'dart:html';
 
 void main() {
   print('Master Theme Loaded.');
+  window.localStorage['avosession'] = getParameterByName('access_token');
   enableTabs();
   enableBurger();
 }
 
 void enableTabs() {
-  querySelectorAll("#nav li")
-      .forEach((navEl) => {navEl.onClick.listen(tabClick)});
+  querySelectorAll("#nav li").forEach((navEl) {
+    navEl.onClick.listen(tabClick);
+  });
 }
 
 void tabClick(Event e) {
@@ -49,4 +51,11 @@ void enableBurger() {
 void burgerClick(Element burger, Element menu) {
   burger.classes.toggle('is-active');
   menu.classes.toggle('is-active');
+}
+
+String getParameterByName(String name, [String url]) {
+  if (url == null) url = window.location.href;
+
+  var uri = Uri.parse(url);
+  return uri.queryParameters[name];
 }

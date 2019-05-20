@@ -10,7 +10,7 @@
     <title>{{.Title}}</title>
     <link rel="shortcut icon" href="https://theme{{.Host}}v1/asset/ico/favicon.ico" type="image/x-icon">
     <link rel="icon" href="https://theme{{.Host}}v1/asset/ico/favicon.ico" type="image/x-icon">
-    
+
     <meta property="og:title" content="{{.Title}}">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://artifact{{.Host}}v1/upload/file/{{.LogoKey}}">
@@ -44,6 +44,7 @@
             </div>
 
             <div class="navbar-end">
+
                 <div class="navbar-item">
                     <div class="field">
                         <div class="control">
@@ -57,10 +58,10 @@
     <section class="section">
         {{if .SideMenu }}
         <div class="columns is-gapless">
-            <div class="column is-1">
+            <div class="column is-2">
                 {{ template "_shared/sidemenu.html" .}}
             </div>
-            <div class="column is-11">
+            <div class="column is-10">
                 {{ template "_shared/content.html" .}}
             </div>
         </div>
@@ -72,7 +73,7 @@
     <input type="hidden" id="HostID" value="{{ .Host }}" />
 
     {{ template "_shared/scripts.html" .}}
-    {{ template "_shared/modal.html"}}
+    {{ template "_shared/modal.html" .}}
 </body>
 
 </html>
