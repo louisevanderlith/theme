@@ -1,0 +1,52 @@
+.hero {
+    background: whitesmoke url(.jpg) center / cover;
+    opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+    .hero {
+        background: whitesmoke url(images/hero-2.jpg) center / cover;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        background: whitesmoke url(images/hero-3.jpg) center / cover;
+    }
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    :root {
+        font-size: 90%;
+    }
+}
+.center, .center-column, .top, .right, .bottom, .left {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.center-column {
+    flex-direction: column;
+}
+
+.top    { align-items:     flex-start; }
+.right  { justify-content: flex-end;   }
+.bottom { align-items:     flex-end;   }
+.left   { justify-content: flex-start; }
+
+.single-spaced, .single-spaced * {
+    line-height: 1;
+}
+
+@media (max-width: 1024px) {
+	.desktop {
+		display: none;
+	}
+}
+.hero-background {
+		opacity: 0.5;
+		filter: alpha(opacity=50); /* For IE8 and earlier */
+	  
+}
