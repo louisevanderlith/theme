@@ -28,30 +28,55 @@
 <body>
     <nav class="navbar is-dark">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://www{{.Host}}">
+            <a class="navbar-item" href="/">
                 <img src="https://artifact{{.Host}}v1/upload/file/{{.LogoKey}}" alt="{{.Title}}">
             </a>
-            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            <div class="navbar-burger burger" data-target="navBurger">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </div>
 
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div id="navBurger" class="navbar-menu">
             <div class="navbar-start">
                 {{ template "_shared/topmenu.html" .}}
             </div>
 
             <div class="navbar-end">
 
+                <!--TODO: Enable searching <input class="input" type="text" placeholder="search...">
                 <div class="navbar-item">
                     <div class="field">
                         <div class="control">
-                            <!--TODO: Enable searching <input class="input" type="text" placeholder="search...">-->
+
+                        </div>
+                    </div>
+                </div>-->
+                
+                {{if .LoggedIn}}
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        {{.Username}}
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                            Dashboard
+                        </a>
+                        <a class="navbar-item">
+                            Profile
+                        </a>
+                        <a class="navbar-item">
+                            Settings
+                        </a>
+                        <hr class="navbar-divider">
+                        <div class="navbar-item">
+                            Logout
                         </div>
                     </div>
                 </div>
+                {{end}}
             </div>
         </div>
     </nav>

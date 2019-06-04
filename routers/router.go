@@ -1,10 +1,3 @@
-// @APIVersion 1.0.0
-// @Title Router API
-// @Description API for the Router
-// @Contact astaxie@gmail.com
-// @TermsOfServiceUrl http://beego.me/
-// @License Apache 2.0
-// @LicenseUrl http://www.apache.org/licenses/LICENSE-2.0.html
 package routers
 
 import (
