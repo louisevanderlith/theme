@@ -35,11 +35,12 @@ FROM google/dart AS pyltjie
 ENV PATH="$PATH:/root/.pub-cache/bin"
 
 WORKDIR /arrow
-COPY web ./web
-COPY pubspec.yaml pubspec.yaml
-
 RUN pub global activate webdev
+
+COPY pubspec.yaml pubspec.yaml
 RUN pub get
+
+COPY web ./web
 RUN webdev build
 
 FROM scratch
