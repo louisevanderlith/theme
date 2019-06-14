@@ -1,0 +1,163 @@
+.hero.has-background {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-background {
+    position: absolute;
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+    height: 100%;
+  }
+  .hero-background.is-transparent {
+    opacity: 0.3;
+  }
+
+  .sidebar-header {
+    border-color: teal;
+    padding-bottom: 1rem;
+    border-bottom: 4px solid teal;
+}
+
+.sidebar-header .title, .sidebar-header-single .title {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+}
+
+.sidebar-list p, .sidebar-list-single p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    padding-bottom: 0.8rem;
+}
+
+.sidebar-list a {
+    color: #4a4a4a;
+}
+
+.sidebar-list, .post-content, .sidebar-list-single {
+    padding-top: 1.4rem;
+}
+
+.sidebar-list-nav {
+    padding-top: 1rem;
+}
+
+.sidebar-list-nav .is-tab {
+    padding-right: 1rem;
+}
+
+.sidebar-footer-single {
+    padding-top: 2rem;
+}
+
+.sidebar-footer-single a {
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    border-right: 4px solid teal;
+    padding-right: 1rem;
+}
+
+.sidebar-footer-single a:hover {
+    color: #363636;
+}
+
+/* post */
+.post-header, .sidebar-header-single {
+    border-color: teal;
+    padding-left: 1rem;
+    border-left: 4px solid teal;
+}
+
+.post-header .title {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+}
+
+.post-header .subtitle, .sidebar-header-single .subtitle {
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
+
+.post-content p, .post-single-content p {
+    margin-bottom: 0.8rem;
+}
+
+.post-content, .post-single-content {
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* override */
+.post-single-content form p:nth-child(even) {
+    border-right: 0;
+}
+
+.post-single-content form label {
+    text-transform: uppercase;
+    color: #4a4a4a;
+    padding-bottom: 0.2rem;
+}
+
+.post-single-content form .input[type] {
+    padding-top: 0.2rem;
+}
+
+.post-single-content p:nth-child(even) {
+    border-right: 4px solid teal;
+    padding-right: 1rem;
+}		
+
+.post-content a {
+    color: teal;
+}
+
+.card-content-form form {
+    padding-top: 1.5rem;
+}
+
+.post-footer {
+    padding: 1.5rem 0 0 0;
+}
+.footer-custom {
+    background-color: #0d0c0d;
+    color: #fff;
+}
+
+.footer-custom p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.footer-custom a {
+    color: teal;
+}
+
+.footer-custom a:hover {
+    color: teal;
+}
+.section {
+    padding: 0 0 2rem 0;
+}
+
+.section-header {
+    padding-bottom: 3rem;    
+}
+
+.section-header .title {
+    text-transform: uppercase;
+    color: #4a4a4a;
+    font-size: 1.3rem;
+}
+
+.section-header a {
+    color: teal;
+    font-weight: 700;
+}
+
+.section-header a:hover {
+    color: teal;
+}
