@@ -5,7 +5,7 @@
     </p>
     <ul class="menu-list">
         {{range $ckey, $cval := $val.Children }}
-        <li><a href="{{$cval.Link}}">{{$cval.Name}}</a></li>
+        <li id="{{$val.ID}}" ><a href="{{$cval.Link}}">{{$cval.Name}}</a></li>
         {{end}}
         <!--More children 
             <li>

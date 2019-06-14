@@ -1,7 +1,7 @@
 {{range $key, $val := .TopMenu}}
 {{$len := len $val.Children}}
 <div class="navbar-item {{if gt $len 0}} has-dropdown is-hoverable {{end}}">
-    <a class="navbar-link {{if eq $len 0}} is-arrowless {{end}}" href="{{if $val.Link }}{{$val.Link}} {{else}} # {{end}}">{{$val.Name}}</a>
+    <a id="{{$val.ID}}" class="navbar-link {{if eq $len 0}} is-arrowless {{end}}" href="{{if $val.Link }}{{$val.Link}} {{else}} # {{end}}">{{$val.Name}}</a>
     {{if gt $len 0}}
     <div class="navbar-dropdown is-boxed">
         {{range $ckey, $cval := $val.Children }}
