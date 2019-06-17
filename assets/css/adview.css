@@ -1,7 +1,7 @@
-.hero {
+/*.hero {
     background: whitesmoke url(.jpg) center / cover;
     opacity: 0.8;
-}
+}*/
 
 @media (max-width: 1024px) {
     .hero {
@@ -44,9 +44,4 @@
 	.desktop {
 		display: none;
 	}
-}
-.hero-background {
-		opacity: 0.5;
-		filter: alpha(opacity=50); /* For IE8 and earlier */
-	  
 }
