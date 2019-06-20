@@ -2,13 +2,13 @@
     <ul>
         <li>
             <a href="/">
-                <span class="icon is-small">
-                    <i class="far fa-home"></i>Home
-                </span>
+                Home
             </a>
         </li>
         {{range .Crumbs}}
-            <li><a href="{{.Link}}">{{.Name}}</a></li>
+        {{if .}}
+        <li><a href="{{.}}">{{.}}</a></li>
+        {{end}}
         {{end}}
     </ul>
 </nav>
