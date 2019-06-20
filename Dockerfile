@@ -26,9 +26,9 @@ COPY package.json .
 COPY package-lock.json .
 RUN npm install
 
-COPY gulpfile.js .
 COPY assets/css ./assets/css
-RUN gulp --tasks
+
+COPY gulpfile.js .
 RUN gulp
 
 FROM google/dart AS pyltjie
