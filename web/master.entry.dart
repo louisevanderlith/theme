@@ -1,5 +1,8 @@
 import 'dart:html';
 
+import 'package:Theme.API/comments.dart';
+import 'package:Theme.API/keys.dart';
+
 void main() {
   print('Master Theme Loaded.');
   final access_token = getParameterByName('access_token');
@@ -7,8 +10,11 @@ void main() {
   if (access_token != null) {
     window.localStorage['avosession'] = access_token;
   }
+
   enableTabs();
   enableBurger();
+
+  new Comments("#frmComment", getObjKey(), "Article");
 }
 
 void enableTabs() {

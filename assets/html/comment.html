@@ -1,3 +1,4 @@
+{{ range $key, $val := .}}
 <article class="media">
     <figure class="media-left">
         <p class="image is-64x64">
@@ -9,13 +10,12 @@
             <p>
                 <strong>Barbara Middleton</strong>
                 <br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit
-                blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
+                {{$val.Text}}
                 <br>
-                <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
+                <small><a>Like</a> · <a data-itemKey="$key" data-itemType="Child">Reply</a> · 3 hrs</small>
             </p>
         </div>
-
+        {{ range $ckey, $cval := $val.Children}}
         <article class="media">
             <figure class="media-left">
                 <p class="image is-48x48">
@@ -27,17 +27,18 @@
                     <p>
                         <strong>Sean Brown</strong>
                         <br>
-                        Donec sollicitudin urna eget eros malesuada sagittis. Pellentesque habitant morbi tristique
-                        senectus et netus et malesuada fames ac turpis egestas. Aliquam blandit nisl a nulla sagittis, a
-                        lobortis leo feugiat.
+                        {{$cval.Text}}
                         <br>
-                        <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+                        <small><a>Like</a> · <a data-itemKey="$key" data-itemType="Child">Reply</a> · 2 hrs</small>
                     </p>
                 </div>
             </div>
         </article>
+        {{end}}
     </div>
 </article>
+{{end}}
+
 <article class="media">
     <figure class="media-left">
         <p class="image is-64x64">
@@ -45,15 +46,18 @@
         </p>
     </figure>
     <div class="media-content">
-        <div class="field">
-            <p class="control">
-                <textarea class="textarea" placeholder="Add a comment..."></textarea>
-            </p>
-        </div>
-        <div class="field">
-            <p class="control">
-                <button class="button">Post comment</button>
-            </p>
-        </div>
+        <form id="frmComment" role="form">
+            <div class="field">
+                <div class="control">
+                    <input type="text" id="txtText" class="input" required placeholder="Add a comment..."></input>
+                    <p class="help is-danger"></p>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button id="btnComment" class="button is-info">Comment</button>
+                </div>
+            </div>
+        </form>
     </div>
 </article>

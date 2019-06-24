@@ -41,6 +41,7 @@ COPY pubspec.yaml pubspec.yaml
 RUN pub get
 
 COPY web ./web
+COPY lib ./lib
 RUN webdev build
 
 FROM scratch
