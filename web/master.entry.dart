@@ -1,7 +1,7 @@
 import 'dart:html';
 
 import 'package:Theme.API/comments.dart';
-import 'package:Theme.API/keys.dart';
+import 'package:mango_ui/keys.dart';
 
 void main() {
   print('Master Theme Loaded.');
