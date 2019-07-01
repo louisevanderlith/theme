@@ -1,8 +1,5 @@
 import 'dart:html';
 
-import 'package:Theme.API/comments.dart';
-import 'package:mango_ui/keys.dart';
-
 void main() {
   print('Master Theme Loaded.');
   final access_token = getParameterByName('access_token');
@@ -13,18 +10,14 @@ void main() {
 
   enableTabs();
   enableBurger();
-
-  new Comments("#frmComment", getObjKey(), "Article");
 }
 
 void enableTabs() {
-  querySelectorAll("#nav li").forEach((navEl) {
-    navEl.onClick.listen(tabClick);
-  });
+  document.body.onClick.matches("#nav li").listen(tabClick);
 }
 
 void tabClick(Event e) {
-  Element elem = e.currentTarget;
+  Element elem = e.matchingTarget;
   toggleTab(elem.id, elem.dataset["target"]);
 }
 
@@ -63,9 +56,8 @@ void burgerClick(Element burger, Element menu) {
   menu.classes.toggle('is-active');
 }
 
-String getParameterByName(String name, [String url]) {
-  if (url == null) url = window.location.href;
-
+String getParameterByName(String name) {
+  final url = window.location.href;
   var uri = Uri.parse(url);
   return uri.queryParameters[name];
 }
