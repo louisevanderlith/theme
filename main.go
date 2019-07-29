@@ -5,7 +5,6 @@ import (
 	"os"
 	"path"
 
-	"github.com/louisevanderlith/blog/core"
 	"github.com/louisevanderlith/droxolite"
 	"github.com/louisevanderlith/droxolite/servicetype"
 	"github.com/louisevanderlith/theme/routers"
@@ -34,9 +33,6 @@ func main() {
 
 	poxy := droxolite.NewEpoxy(srv)
 	routers.Setup(poxy)
-
-	core.CreateContext()
-	defer core.Shutdown()
 
 	err = poxy.Boot()
 
