@@ -4,19 +4,12 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/louisevanderlith/mango/control"
+	"github.com/louisevanderlith/droxolite/xontrols"
 	"github.com/louisevanderlith/theme/core"
 )
 
 type AssetController struct {
-	control.APIController
-}
-
-func NewAssetCtrl(ctrlMap *control.ControllerMap) *AssetController {
-	result := &AssetController{}
-	result.SetInstanceMap(ctrlMap)
-
-	return result
+	xontrols.APICtrl
 }
 
 // @Title GetAsset
@@ -27,8 +20,8 @@ func NewAssetCtrl(ctrlMap *control.ControllerMap) *AssetController {
 // @Failure 403 :asstype or :file is empty
 // @router /:group/:file [get]
 func (req *AssetController) Get() {
-	group := req.Ctx.Input.Param(":group")
-	fileName := req.Ctx.Input.Param(":file")
+	group := req.FindParam("group")
+	fileName := req.FindParam("file")
 
 	res, err := core.FindAsset(group, fileName)
 
@@ -53,7 +46,7 @@ func (req *AssetController) Get() {
 // @Failure 403 :asstype or :file is empty
 // @router /:group [get]
 func (req *AssetController) GetAll() {
-	group := req.Ctx.Input.Param(":group")
+	group := req.FindParam("group")
 	assests, err := core.ListAssets(group)
 
 	if err != nil {

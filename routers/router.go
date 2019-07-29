@@ -1,25 +1,25 @@
 package routers
 
 import (
-	"fmt"
-	"strings"
-
-	"github.com/louisevanderlith/mango"
-	"github.com/louisevanderlith/mango/control"
+	"github.com/louisevanderlith/droxolite"
+	"github.com/louisevanderlith/droxolite/roletype"
 	"github.com/louisevanderlith/theme/controllers"
-
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/plugins/cors"
-	secure "github.com/louisevanderlith/secure/core"
 )
 
-func Setup(s *mango.Service, host string) {
-	ctrlmap := EnableFilter(s, host)
+func Setup(poxy *droxolite.Epoxy) {
+	//Asset
+	assCtrl := &controllers.AssetController{}
+	assGroup := droxolite.NewRouteGroup("asset", assCtrl)
+	assGroup.AddRoute("/{key:[0-9]+\x60[0-9]+}", "GET", roletype.Unknown, assCtrl.Get)
+	assGroup.AddRoute("/all/{pagesize:[A-Z][0-9]+}", "GET", roletype.Unknown, assCtrl.GetAll)
+	poxy.AddGroup(assGroup)
+	/*ctrlmap := EnableFilter(s, host)
 
 	beego.Router("/v1/asset/:group", controllers.NewAssetCtrl(ctrlmap), "get:GetAll")
-	beego.Router("/v1/asset/:group/:file", controllers.NewAssetCtrl(ctrlmap), "get:Get")
+	beego.Router("/v1/asset/:group/:file", controllers.NewAssetCtrl(ctrlmap), "get:Get")*/
 }
 
+/*
 func EnableFilter(s *mango.Service, host string) *control.ControllerMap {
 	ctrlmap := control.CreateControlMap(s)
 
@@ -36,4 +36,4 @@ func EnableFilter(s *mango.Service, host string) *control.ControllerMap {
 	}))
 
 	return ctrlmap
-}
+}*/

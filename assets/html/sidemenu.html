@@ -1,14 +1,20 @@
-<aside class="section column is-2 is-narrow-mobile is-hidden-mobile" style="overflow: auto; height: 100vh;">
-    {{range $key, $val := .SideMenu}}
+<aside class="section column is-2 is-narrow-mobile is-hidden-mobile" style="overflow: auto; height: 88vh;">
+    {{range $key, $menu := .SideMenu}}
     <p class="menu-label is-hidden-touch">
-        {{$val.Name}}
+        {{$key}}
     </p>
     <ul class="menu-list">
-        {{range $ckey, $cval := $val.Children }}
-        <li id="{{$val.ID}}"><a class="{{if $cval.IsActive}}is-active{{end}}" href="{{$cval.Link}}">
-                <span class="icon"><i class="fa {{$cval.Class}}"></i></span>
-                {{$cval.Name}}
-            </a></li>
+        {{range $_, $val := $menu}}
+        <li id="{{$val.ID}}"><a class="{{if $val.IsActive}}is-active{{end}}" href="{{$val.Link}}">
+                <span class="icon"><i class="fa {{$val.Class}}"></i></span>
+                {{$val.Name}}
+            </a>
+            <ul>
+                {{range $ckey, $cmenu := $val.Children}}
+                <li><a>$ckey</a></li>
+                {{end}}
+            </ul>
+        </li>
         {{end}}
     </ul>
     {{end}}
