@@ -2,19 +2,19 @@
 <html lang="en">
 
 <head>
-    {{ template "_shared/tracking.html" .}}
+    {{ template "tracking.html" .}}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="author" content="avosa software">
     <title>{{.Title}}</title>
-    <link rel="shortcut icon" href="https://theme{{.Host}}v1/asset/ico/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="https://theme{{.Host}}v1/asset/ico/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://theme{{.Host}}asset/ico/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://theme{{.Host}}asset/ico/favicon.ico" type="image/x-icon">
 
     <meta property="og:title" content="{{.Title}}">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://artifact{{.Host}}v1/upload/file/{{.LogoKey}}">
+    <meta property="og:image" content="https://artifact{{.Host}}upload/file/{{.LogoKey}}">
     <meta property="og:url" content="https://www{{.Host}}">
     <meta property="og:description" content="">
 
@@ -22,7 +22,7 @@
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" href="https://theme{{.Host}}v1/asset/css/bundle.css" />
+    <link rel="stylesheet" href="https://theme{{.Host}}asset/css/bundle.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
 </head>
 
@@ -30,7 +30,7 @@
     <nav class="navbar is-dark is-fixed-top">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
-                <img src="https://artifact{{.Host}}v1/upload/file/{{.LogoKey}}" alt="{{.Title}}">
+                <img src="https://artifact{{.Host}}upload/file/{{.LogoKey}}" alt="{{.Title}}">
             </a>
             <div class="navbar-burger burger" data-target="navBurger">
                 <span></span>
@@ -41,7 +41,7 @@
 
         <div id="navBurger" class="navbar-menu">
             <div class="navbar-start">
-                {{ template "_shared/topmenu.html" .}}
+                {{ template "topmenu.html" .}}
             </div>
 
             <div class="navbar-end">
@@ -84,20 +84,20 @@
 
     {{if .SideMenu }}
     <section class="columns is-fullheight">
-        {{ template "_shared/sidemenu.html" .}}
+        {{ template "sidemenu.html" .}}
         <div class="column is-10" style="overflow: auto; height: 100vh;">
-            {{ template "_shared/content.html" .}}
+            {{.LayoutContent}}
         </div>
     </section>
     {{else}}
     <section class="section">
-        {{ template "_shared/content.html" .}}
+        {{.LayoutContent}}
     </section>
     {{end}}
     <input type="hidden" id="InstanceID" value="{{ .InstanceID }}" />
     <input type="hidden" id="HostID" value="{{ .Host }}" />
 
-    {{ template "_shared/scripts.html" .}}
+    {{ template "scripts.html" .}}
 </body>
 
 </html>

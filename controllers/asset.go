@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"log"
 	"net/http"
 	"strings"
 
@@ -26,7 +27,9 @@ func (req *AssetController) Get() {
 	res, err := core.FindAsset(group, fileName)
 
 	if err != nil {
-		panic(err)
+		log.Println(err)
+		req.Serve(http.StatusBadRequest, err, nil)
+		return
 	}
 
 	mimes := make(map[string]string)
