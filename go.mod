@@ -1,3 +1,3 @@
 module github.com/louisevanderlith/theme
 
-require github.com/louisevanderlith/droxolite v1.1.1
+require github.com/louisevanderlith/droxolite v1.2.4
