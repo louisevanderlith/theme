@@ -10,8 +10,8 @@ func Setup(poxy *droxolite.Epoxy) {
 	//Asset
 	assCtrl := &controllers.AssetController{}
 	assGroup := droxolite.NewRouteGroup("asset", assCtrl)
-	assGroup.AddRoute("/{group:[a-z]+}", "GET", roletype.Unknown, assCtrl.GetAll)
-	assGroup.AddRoute("/{group:[a-z]+}/{file}", "GET", roletype.Unknown, assCtrl.Get)
+	assGroup.AddRoute("Assets by Group", "/{group:[a-z]+}", "GET", roletype.Unknown, assCtrl.GetAll)
+	assGroup.AddRoute("Get Asset", "/{group:[a-z]+}/{file}", "GET", roletype.Unknown, assCtrl.Get)
 	poxy.AddGroup(assGroup)
 	/*ctrlmap := EnableFilter(s, host)
 
