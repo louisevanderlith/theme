@@ -1,21 +1,38 @@
-<aside class="menu is-hidden-mobile">
-    {{range $key, $val := .SideMenu}}
-    <p class="menu-label">
-        {{$val.Name}}
+<aside class="section column is-2 is-narrow-mobile is-hidden-mobile" style="overflow: auto; height: 88vh;">
+    {{range $lbl, $items := .SideMenu}}
+    <p class="menu-label is-hidden-touch">
+        {{$lbl}}
     </p>
     <ul class="menu-list">
-        {{range $ckey, $cval := $val.Children }}
-        <li><a href="{{$cval.Link}}">{{$cval.Name}}</a></li>
-        {{end}}
-        <!--More children 
-            <li>
-            <a>Manage Your Team</a>
+        {{range $_, $val := $items}}
+        <li id="{{$val.ID}}"><a class="{{if $val.IsActive}}is-active{{end}}" href="{{$val.Link}}">
+                <span class="icon"><i class="fa fa-angle-double-right"></i></span>
+                {{$val.Text}}
+            </a>
+            {{if $val.Children}}
             <ul>
-                <li><a>Members</a></li>
-                <li><a>Plugins</a></li>
-                <li><a>Add a member</a></li>
+                {{range $_, $cval := $val.Children}}
+                <li id="{{$cval.ID}}"><a class="{{if $cval.IsActive}}is-active{{end}}" href="{{$cval.Link}}">
+                        <span class="icon"><i class="fa fa-angle-double-right"></i></span>
+                        {{$cval.Text}}
+                    </a>
+                    {{if $cval.Children}}
+                    <ul>
+                        {{range $_, $ccval := $cval.Children}}
+                        <li id="{{$ccval.ID}}"><a class="{{if $ccval.IsActive}}is-active{{end}}" href="{{$ccval.Link}}">
+                                <span class="icon"><i class="fa fa-angle-double-right"></i></span>
+                                {{$ccval.Text}}
+                            </a>
+                        </li>
+                        {{end}}
+                    </ul>
+                    {{end}}
+                </li>
+                {{end}}
             </ul>
-        </li>-->
+            {{end}}
+        </li>
+        {{end}}
     </ul>
     {{end}}
 </aside>

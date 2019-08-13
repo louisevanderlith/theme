@@ -1,4 +1,4 @@
-FROM golang:1.11 as build_base
+FROM golang:1.12 as build_base
 
 WORKDIR /box
 
@@ -26,24 +26,28 @@ COPY package.json .
 COPY package-lock.json .
 RUN npm install
 
-COPY gulpfile.js .
 COPY assets/css ./assets/css
-RUN gulp --tasks
+
+COPY gulpfile.js .
 RUN gulp
 
 FROM google/dart AS pyltjie
+ENV PATH="$PATH:/root/.pub-cache/bin"
 
 WORKDIR /arrow
-COPY assets/dart ./assets/dart
+RUN pub global activate webdev
 
-RUN mkdir -p assets/js
-COPY compiledart.sh .
-RUN sh ./compiledart.sh
+COPY pubspec.yaml pubspec.yaml
+RUN pub get
+
+COPY web ./web
+COPY lib ./lib
+RUN webdev build
 
 FROM scratch
 
 COPY --from=builder /box/theme .
-COPY --from=pyltjie /arrow/assets/js dist/js
+COPY --from=pyltjie /arrow/build/*.dart.js dist/js/
 COPY --from=styler /scissor/dist/css dist/css
 COPY conf conf
 

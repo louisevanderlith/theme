@@ -1,44 +1,39 @@
-// @APIVersion 1.0.0
-// @Title Router API
-// @Description API for the Router
-// @Contact astaxie@gmail.com
-// @TermsOfServiceUrl http://beego.me/
-// @License Apache 2.0
-// @LicenseUrl http://www.apache.org/licenses/LICENSE-2.0.html
 package routers
 
 import (
-	"github.com/louisevanderlith/mango"
-	"github.com/louisevanderlith/mango/control"
+	"github.com/louisevanderlith/droxolite"
+	"github.com/louisevanderlith/droxolite/roletype"
 	"github.com/louisevanderlith/theme/controllers"
-
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/plugins/cors"
-	secure "github.com/louisevanderlith/secure/core"
 )
 
-func Setup(s *mango.Service) {
-	ctrlmap := EnableFilter(s)
+func Setup(poxy *droxolite.Epoxy) {
+	//Asset
+	assCtrl := &controllers.AssetController{}
+	assGroup := droxolite.NewRouteGroup("asset", assCtrl)
+	assGroup.AddRoute("Assets by Group", "/{group:[a-z]+}", "GET", roletype.Unknown, assCtrl.GetAll)
+	assGroup.AddRoute("Get Asset", "/{group:[a-z]+}/{file}", "GET", roletype.Unknown, assCtrl.Get)
+	poxy.AddGroup(assGroup)
+	/*ctrlmap := EnableFilter(s, host)
 
 	beego.Router("/v1/asset/:group", controllers.NewAssetCtrl(ctrlmap), "get:GetAll")
-	beego.Router("/v1/asset/:group/:file", controllers.NewAssetCtrl(ctrlmap), "get:Get")
+	beego.Router("/v1/asset/:group/:file", controllers.NewAssetCtrl(ctrlmap), "get:Get")*/
 }
 
-func EnableFilter(s *mango.Service) *control.ControllerMap {
+/*
+func EnableFilter(s *mango.Service, host string) *control.ControllerMap {
 	ctrlmap := control.CreateControlMap(s)
 
 	emptyMap := make(secure.ActionMap)
 
 	ctrlmap.Add("/v1/asset", emptyMap)
 
-	beego.InsertFilter("/v1/*", beego.BeforeRouter, ctrlmap.FilterAPI)
+	beego.InsertFilter("/v1/*", beego.BeforeRouter, ctrlmap.FilterAPI, false)
+	allowed := fmt.Sprintf("https://*%s", strings.TrimSuffix(host, "/"))
 
 	beego.InsertFilter("*", beego.BeforeRouter, cors.Allow(&cors.Options{
-		AllowAllOrigins: true,
-		AllowMethods:    []string{"GET", "OPTIONS"},
-		AllowHeaders:    []string{"Origin", "Authorization", "Access-Control-Allow-Origin", "Content-Type"},
-		ExposeHeaders:   []string{"Content-Length", "Access-Control-Allow-Origin"},
+		AllowOrigins: []string{allowed},
+		AllowMethods: []string{"GET", "POST", "OPTIONS"},
 	}))
 
 	return ctrlmap
-}
+}*/

@@ -2,17 +2,22 @@ import 'dart:html';
 
 void main() {
   print('Master Theme Loaded.');
+  final access_token = getParameterByName('access_token');
+
+  if (access_token != null) {
+    window.localStorage['avosession'] = access_token;
+  }
+
   enableTabs();
   enableBurger();
 }
 
 void enableTabs() {
-  querySelectorAll("#nav li")
-      .forEach((navEl) => {navEl.onClick.listen(tabClick)});
+  document.body.onClick.matches("#nav li").listen(tabClick);
 }
 
 void tabClick(Event e) {
-  Element elem = e.currentTarget;
+  Element elem = e.matchingTarget;
   toggleTab(elem.id, elem.dataset["target"]);
 }
 
@@ -49,4 +54,10 @@ void enableBurger() {
 void burgerClick(Element burger, Element menu) {
   burger.classes.toggle('is-active');
   menu.classes.toggle('is-active');
+}
+
+String getParameterByName(String name) {
+  final url = window.location.href;
+  var uri = Uri.parse(url);
+  return uri.queryParameters[name];
 }

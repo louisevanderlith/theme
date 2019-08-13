@@ -1,0 +1,63 @@
+{{ range $key, $val := .}}
+<article class="media">
+    <figure class="media-left">
+        <p class="image is-64x64">
+            <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg">
+        </p>
+    </figure>
+    <div class="media-content">
+        <div class="content">
+            <p>
+                <strong>Barbara Middleton</strong>
+                <br>
+                {{$val.Text}}
+                <br>
+                <small><a>Like</a> · <a data-itemKey="$key" data-itemType="Child">Reply</a> · 3 hrs</small>
+            </p>
+        </div>
+        {{ range $ckey, $cval := $val.Children}}
+        <article class="media">
+            <figure class="media-left">
+                <p class="image is-48x48">
+                    <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg">
+                </p>
+            </figure>
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <strong>Sean Brown</strong>
+                        <br>
+                        {{$cval.Text}}
+                        <br>
+                        <small><a>Like</a> · <a data-itemKey="$key" data-itemType="Child">Reply</a> · 2 hrs</small>
+                    </p>
+                </div>
+            </div>
+        </article>
+        {{end}}
+    </div>
+</article>
+{{end}}
+
+<article class="media">
+    <figure class="media-left">
+        <p class="image is-64x64">
+            <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg">
+        </p>
+    </figure>
+    <div class="media-content">
+        <form id="frmComment" role="form">
+            <div class="field">
+                <div class="control">
+                    <input type="text" id="txtText" class="input" required placeholder="Add a comment..."></input>
+                    <p class="help is-danger"></p>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button id="btnComment" class="button is-info">Comment</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</article>
