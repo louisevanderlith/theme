@@ -1,17 +1,15 @@
-{{range $key, $menu := .TopMenu}}
-{{range $_, $val := $menu}}
+{{range $_, $items:= .TopMenu}}
+{{range $_, $val := $items}}
 {{$len := len $val.Children}}
 <div class="navbar-item {{if gt $len 0}} has-dropdown is-hoverable {{end}}">
     <a id="{{$val.ID}}" class="navbar-link {{if eq $len 0}} is-arrowless {{end}}"
-        href="{{if $val.Link }}{{$val.Link}} {{else}} # {{end}}">{{$val.Name}}</a>
+        href="{{if $val.Link }}{{$val.Link}} {{else}} # {{end}}">{{$val.Text}}</a>
     {{if gt $len 0}}
     <div class="navbar-dropdown is-boxed">
-        {{range $ckey, $cmenu := $val.Children }}
-        {{range $_, $cval := $cmenu}}
-        <a class="navbar-item" href="{{if $cval.Link }}{{$cval.Link}} {{else}} # {{end}}">
-            {{$cval.Name}}
+        {{range $_, $cval := $val.Children}}
+        <a class="navbar-item" class="{{if $cval.IsActive}}is-active{{end}}" href="{{if $cval.Link }}{{$cval.Link}} {{else}} # {{end}}">
+            {{$cval.Text}}
         </a>
-        {{end}}
         {{end}}
     </div>
     {{end}}
@@ -20,4 +18,4 @@
 {{end}}
 {{if .ShowSave}}
 <button class="button is-primary is-small" type="button" id="btnSave">Save</button>
-{{end}}
+{{end}} 
