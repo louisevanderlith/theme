@@ -28,7 +28,7 @@ func (req *AssetController) Get() {
 
 	if err != nil {
 		log.Println(err)
-		req.Serve(http.StatusBadRequest, err, nil)
+		req.Serve(http.StatusNotFound, nil, nil)
 		return
 	}
 

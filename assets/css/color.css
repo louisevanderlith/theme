@@ -13,3 +13,7 @@
 .lightgrey {
     color: #949599;
 }
+
+.hidden {
+    display: none;
+}

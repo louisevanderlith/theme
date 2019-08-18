@@ -34,7 +34,7 @@ func main() {
 	routers.Setup(poxy)
 	poxy.EnableCORS(host)
 
-	err = poxy.Boot()
+	err = poxy.BootLimited(2)
 
 	if err != nil {
 		panic(err)
