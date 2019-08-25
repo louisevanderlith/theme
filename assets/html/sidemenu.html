@@ -9,28 +9,6 @@
                 <span class="icon"><i class="fa fa-angle-double-right"></i></span>
                 {{$val.Text}}
             </a>
-            {{if $val.Children}}
-            <ul>
-                {{range $_, $cval := $val.Children}}
-                <li id="{{$cval.ID}}"><a class="{{if $cval.IsActive}}is-active{{end}}" href="{{$cval.Link}}">
-                        <span class="icon"><i class="fa fa-angle-double-right"></i></span>
-                        {{$cval.Text}}
-                    </a>
-                    {{if $cval.Children}}
-                    <ul>
-                        {{range $_, $ccval := $cval.Children}}
-                        <li id="{{$ccval.ID}}"><a class="{{if $ccval.IsActive}}is-active{{end}}" href="{{$ccval.Link}}">
-                                <span class="icon"><i class="fa fa-angle-double-right"></i></span>
-                                {{$ccval.Text}}
-                            </a>
-                        </li>
-                        {{end}}
-                    </ul>
-                    {{end}}
-                </li>
-                {{end}}
-            </ul>
-            {{end}}
         </li>
         {{end}}
     </ul>

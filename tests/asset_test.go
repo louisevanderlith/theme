@@ -5,20 +5,21 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/louisevanderlith/droxolite"
+	"github.com/louisevanderlith/droxolite/bodies"
+	"github.com/louisevanderlith/droxolite/resins"
 	"github.com/louisevanderlith/droxolite/servicetype"
 	"github.com/louisevanderlith/theme/routers"
 )
 
 var (
-	epox *droxolite.Epoxy
+	epox resins.Epoxi
 )
 
 func init() {
-	srvc := droxolite.NewService("Artifact.API", "/certs/none.pem", 8093, servicetype.API)
+	srvc := bodies.NewService("Artifact.API", "/certs/none.pem", 8093, servicetype.API)
 	srvc.ID = "Tester1"
 
-	epox = droxolite.NewEpoxy(srvc)
+	epox = resins.NewBasicEpoxy(srvc)
 	routers.Setup(epox)
 	epox.EnableCORS(".localhost/")
 }

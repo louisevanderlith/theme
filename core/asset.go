@@ -1,11 +1,69 @@
 package core
 
 import (
+	"bytes"
 	"errors"
+	"io"
 	"io/ioutil"
 	"path/filepath"
 	"strings"
+
+	"github.com/louisevanderlith/husk"
 )
+
+type Asset struct {
+	Group string `hsk:"size(5)"`
+	Name  string `hsk:"size(128)"`
+	BLOB  []byte `json:"-"` //Blob shouldn't be returned in JSON result sets.
+}
+
+func (a Asset) Valid() (bool, error) {
+	if len(a.Group) < 2 {
+		return false, errors.New("group too short")
+	}
+
+	if len(a.Name) < 3 || !strings.Contains(a.Name, ".") {
+		return false, errors.New("name is invalid")
+	}
+
+	return husk.ValidateStruct(&a)
+}
+
+func FindCachedAsset(group, name string) (io.Reader, error) {
+	if len(group) < 2 {
+		return nil, errors.New("group too short")
+	}
+
+	if len(name) < 3 || !strings.Contains(name, ".") {
+		return nil, errors.New("name is invalid")
+	}
+
+	upload, err := ctx.Assets.FindFirst(byGroupAndName(group, name))
+
+	if err != nil {
+		return nil, err
+	}
+
+	return bytes.NewReader(upload.Data().(*Asset).BLOB), nil
+}
+
+func ListCachedAssets(group string) ([]string, error) {
+	coll := ctx.Assets.Find(1, 100, byGroup(group))
+
+	if !coll.Any() {
+		return nil, errors.New("nothing found")
+	}
+
+	enumer := coll.GetEnumerator()
+
+	var result []string
+	for enumer.MoveNext() {
+		obj := enumer.Current().Data().(*Asset)
+		result = append(result, obj.Name)
+	}
+
+	return result, nil
+}
 
 //ListAssets returns a collection of files in a group
 func ListAssets(group string) ([]string, error) {

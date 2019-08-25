@@ -1,18 +1,22 @@
 package routers
 
 import (
-	"github.com/louisevanderlith/droxolite"
+	"github.com/louisevanderlith/droxolite/mix"
+	"github.com/louisevanderlith/droxolite/resins"
 	"github.com/louisevanderlith/droxolite/roletype"
-	"github.com/louisevanderlith/theme/controllers"
+	"github.com/louisevanderlith/droxolite/routing"
+	"github.com/louisevanderlith/theme/controllers/assets"
 )
 
-func Setup(poxy *droxolite.Epoxy) {
+func Setup(poxy resins.Epoxi) {
 	//Asset
-	assCtrl := &controllers.AssetController{}
-	assGroup := droxolite.NewRouteGroup("asset", assCtrl)
-	assGroup.AddRoute("Assets by Group", "/{group:[a-z]+}", "GET", roletype.Unknown, assCtrl.GetAll)
-	assGroup.AddRoute("Get Asset", "/{group:[a-z]+}/{file}", "GET", roletype.Unknown, assCtrl.Get)
-	poxy.AddGroup(assGroup)
+	metaGroup := routing.NewRouteGroup("asset", mix.JSON)
+	metaGroup.AddRoute("Assets by Group", "/{group:[a-z]+}", "GET", roletype.Unknown, assets.GetAll)
+	poxy.AddGroup(metaGroup)
+
+	fileGroup := routing.NewRouteGroup("asset", mix.Octet)
+	fileGroup.AddRoute("Get Asset", "/{group:[a-z]+}/{file}", "GET", roletype.Unknown, assets.Get)
+	poxy.AddGroup(fileGroup)
 	/*ctrlmap := EnableFilter(s, host)
 
 	beego.Router("/v1/asset/:group", controllers.NewAssetCtrl(ctrlmap), "get:GetAll")
