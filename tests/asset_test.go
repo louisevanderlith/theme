@@ -19,7 +19,7 @@ func init() {
 	srvc := bodies.NewService("Artifact.API", "/certs/none.pem", 8093, servicetype.API)
 	srvc.ID = "Tester1"
 
-	epox = resins.NewBasicEpoxy(srvc)
+	epox = resins.NewMonoEpoxy(srvc)
 	routers.Setup(epox)
 	epox.EnableCORS(".localhost/")
 }

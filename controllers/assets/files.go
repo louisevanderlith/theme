@@ -14,7 +14,7 @@ import (
 // @Success 200 {string} string
 // @Failure 403 :asstype or :file is empty
 // @router /:group/:file [get]
-func Get(ctx context.Contexer) (int, interface{}) {
+func Get(ctx context.Requester) (int, interface{}) {
 	group := ctx.FindParam("group")
 	fileName := ctx.FindParam("file")
 
@@ -40,7 +40,7 @@ func Get(ctx context.Contexer) (int, interface{}) {
 // @Success 200 {string} string
 // @Failure 403 :asstype or :file is empty
 // @router /:group [get]
-func GetAll(ctx context.Contexer) (int, interface{}) {
+func GetAll(ctx context.Requester) (int, interface{}) {
 	group := ctx.FindParam("group")
 	assets, err := core.ListCachedAssets(group)
 

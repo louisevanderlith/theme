@@ -9,20 +9,20 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="author" content="avosa software">
     <title>{{.Title}}</title>
-    <link rel="shortcut icon" href="https://theme{{.Host}}asset/ico/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="https://theme{{.Host}}asset/ico/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://theme{{.Identity.Host}}asset/ico/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://theme{{.Identity.Host}}asset/ico/favicon.ico" type="image/x-icon">
 
     <meta property="og:title" content="{{.Title}}">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://artifact{{.Host}}download/{{.LogoKey}}">
-    <meta property="og:url" content="https://www{{.Host}}">
+    <meta property="og:image" content="https://artifact{{.Identity.Host}}download/{{.Identity.LogoKey}}">
+    <meta property="og:url" content="https://www{{.Identity.Host}}">
     <meta property="og:description" content="">
 
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" href="https://theme{{.Host}}asset/css/bundle.css" />
+    <link rel="stylesheet" href="https://theme{{.Identity.Host}}asset/css/bundle.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
 </head>
 
@@ -30,7 +30,7 @@
     <nav class="navbar is-dark is-fixed-top">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
-                <img src="https://artifact{{.Host}}download/{{.LogoKey}}" alt="{{.Title}}">
+                <img src="https://artifact{{.Identity.Host}}download/{{.Identity.LogoKey}}" alt="{{.Title}}">
             </a>
             <div class="navbar-burger burger" data-target="navBurger">
                 <span></span>
@@ -94,10 +94,11 @@
         {{.LayoutContent}}
     </section>
     {{end}}
-    <input type="hidden" id="InstanceID" value="{{ .InstanceID }}" />
-    <input type="hidden" id="HostID" value="{{ .Host }}" />
+    <input type="hidden" id="InstanceID" value="{{ .Identity.InstanceID }}" />
+    <input type="hidden" id="HostID" value="{{ .Identity.Host }}" />
 
     {{ template "scripts.html" .}}
+    {{template "footer.html" .}}
 </body>
 
 </html>
