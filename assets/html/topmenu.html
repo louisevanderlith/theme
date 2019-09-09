@@ -1,21 +1,15 @@
-{{range $_, $items:= .TopMenu}}
-{{range $_, $val := $items}}
-{{$len := len $val.Children}}
-<div class="navbar-item {{if gt $len 0}} has-dropdown is-hoverable {{end}}">
-    <a id="{{$val.ID}}" class="navbar-link {{if eq $len 0}} is-arrowless {{end}}"
-        href="{{if $val.Link }}{{$val.Link}} {{else}} # {{end}}">{{$val.Text}}</a>
-    {{if gt $len 0}}
-    <div class="navbar-dropdown is-boxed">
-        {{range $_, $cval := $val.Children}}
-        <a class="navbar-item" class="{{if $cval.IsActive}}is-active{{end}}" href="{{if $cval.Link }}{{$cval.Link}} {{else}} # {{end}}">
-            {{$cval.Text}}
-        </a>
+<div class="navbar-item">
+    <div class="field is-grouped">
+        {{if .ShowSearch}}
+        <div class="control is-expanded has-icons-left">
+            <input class="input has-text-centered" type="text" placeholder="Search">
+            <span class="icon is-small is-left">
+                <i class="fas fa-search"></i>
+            </span>
+        </div>
         {{end}}
+        <div class="control">
+            <button class="button is-primary is-normal" type="button" id="btnSubmit">Submit</button>
+        </div>
     </div>
-    {{end}}
 </div>
-{{end}}
-{{end}}
-{{if .ShowSave}}
-<button class="button is-primary is-small" type="button" id="btnSave">Save</button>
-{{end}} 

@@ -45,16 +45,6 @@
             </div>
 
             <div class="navbar-end">
-
-                <!--TODO: Enable searching <input class="input" type="text" placeholder="search...">
-                <div class="navbar-item">
-                    <div class="field">
-                        <div class="control">
-
-                        </div>
-                    </div>
-                </div>-->
-
                 {{if .LoggedIn}}
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
@@ -87,18 +77,21 @@
         {{ template "sidemenu.html" .}}
         <div class="column is-10" style="overflow: auto; height: 100vh;">
             {{.LayoutContent}}
+            {{template "footer.html" .}}
+            {{template "toast.html" .}}
         </div>
     </section>
     {{else}}
     <section class="section">
         {{.LayoutContent}}
+        {{template "footer.html" .}}
+        {{template "toast.html" .}}
     </section>
     {{end}}
     <input type="hidden" id="InstanceID" value="{{ .Identity.InstanceID }}" />
     <input type="hidden" id="HostID" value="{{ .Identity.Host }}" />
 
     {{ template "scripts.html" .}}
-    {{template "footer.html" .}}
 </body>
 
 </html>
