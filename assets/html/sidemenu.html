@@ -9,6 +9,11 @@
                 <span class="icon"><i class="fa fa-angle-double-right"></i></span>
                 {{$val.Text}}
             </a>
+            {{if $val.CanCreate}}
+            <a href="{{$val.Link}}/create">
+                <span class="icon has-text-success"><i class="fa fa-plus"></i></span>
+            </a>
+            {{end}}
             {{if $val.Children}}
             <ul class="menu-list">
                 {{range $_, $cval := $val.Children}}
