@@ -2,7 +2,7 @@
 <article class="media">
     <figure class="media-left">
         <p class="image is-64x64">
-            <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg">
+            <img src="https://www.gravatar.com/avatar/{{$val.UserImage}}.jpg">
         </p>
     </figure>
     <div class="media-content">
@@ -19,7 +19,7 @@
         <article class="media">
             <figure class="media-left">
                 <p class="image is-48x48">
-                    <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg">
+                    <img src="https://www.gravatar.com/avatar/{{$cval.UserImage}}.jpg">
                 </p>
             </figure>
             <div class="media-content">
@@ -38,15 +38,16 @@
     </div>
 </article>
 {{end}}
-
+{{if .LoggedIn}}
 <article class="media">
     <figure class="media-left">
         <p class="image is-64x64">
-            <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50.jpg">
+            <img src="https://www.gravatar.com/avatar/{{.Gravatar}}.jpg">
         </p>
     </figure>
     <div class="media-content">
         <form id="frmComment" role="form">
+            <input type="hidden" id="hdnUserImg" value="{{.Gravatar}}" />
             <div class="field">
                 <div class="control">
                     <input type="text" id="txtText" class="input" required placeholder="Add a comment..."></input>
@@ -61,3 +62,6 @@
         </form>
     </div>
 </article>
+{{else}}
+<span>Please login to Comment</span>
+{{end}}
