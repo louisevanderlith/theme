@@ -1,61 +1,40 @@
-<section class="hero is-margineless is-paddingless">
-    <div class="hero-body is-margineless is-paddingless">
-        <footer class="footer">
-            <div class="content has-text-centered">
-                <div class="columns">
-                    <div class="column is-3 has-text-left">
-                        <h2 class="sub-heading">Follow us</h2>
-                        <p>
-                            {{range $key, $val := .Identity.Footer.SocialLinks}}
-                            <a href="{{$val.URL}}" target="_blank">
-                                <i class="fab {{$val.Icon}} fa-2x"
-                                    style="color: ffe401; display: inline-block; margin-right: 0.5em;"></i>
-                            </a>
-                            {{end}}
-                        </p>
-                    </div>
-                    <div class="column is-4 has-text-centered">
-                        <h2 class="sub-heading">Advertise</h2>
-                        <p><a href="#">List your property for sale</a></p>
-                        <p><a href="#">List your property for rent</a></p>
-                        <p><a href="#">Listings for state agents</a></p>
-                    </div>
-                    <div class="column is-3 has-text-right">
-                        <h2 class="sub-heading">Our Sites</h2>
-                        <p><a href="https://www.avosa.co.za" target="_blank">Avosa</a></p>
-                        <p><a href="#">IdealCar</a></p>
-                        <p><a href="#">Idealmart</a></p>
-                        <p><a href="#">Getproperty</a></p>
-                        <p><a href="#">Getparts</a></p>
-                        <p><a href="#">Carhome</a></p>
+<footer class="footer" style="padding-bottom: 2em">
+    <div class="columns is-mobile has-text-centered">
+        <div class="column">
+            <h4 class="title is-4">Lets get social</h4>
+            <p>
+                {{range $key, $val := .Identity.Footer.SocialLinks}}
+                <a href="{{$val.URL}}" target="_blank">
+                    <i class="fab {{$val.Icon}} fa-2x" style="display: inline-block; margin-right: 1em;"></i>
+                </a>
+                {{end}}
+            </p>
+        </div>
+        <div class="column is-hidden-mobile">
+            <p>
+                {{range $key, $val := .Identity.Footer.OtherLinks}}
+                <a href="{{$val.URL}}" target="_blank">
+                    <i class="fab {{$val.Icon}} fa-2x" style="display: inline-block; margin-right: 1em;"></i>
+                </a>
+                {{end}}
+            </p>
+        </div>
+        <div class="column">
+            <h4 class="title is-4">Our sites</h4>
+            <p><a href="https://www.avosa.co.za" target="_blank">Avosa</a></p>
+            <p><a href="#">IdealCar</a></p>
+            <p><a href="#">Idealmart</a></p>
+            <p><a href="#">Getproperty</a></p>
+            <p><a href="#">Getparts</a></p>
+            <p><a href="#">Carhome</a></p>
 
-                    </div>
-                </div>
-                <hr>
-                <div class="columns">
-                    <div class="column is-2 has-text-centered">
-                        <p><a href="#">Acceptable Use Policy</a></p>
-                    </div>
-                    <div class="column is-2 has-text-right">
-                        <p><a href="#">Terms of Service</a></p>
-                    </div>
-                    <div class="column is-2 has-text-right">
-                        <p><a href="#">Security Policy</a></p>
-                    </div>
-                    <div class="column is-2 has-text-right">
-                        <p><a href="#">Privacy Policy</a></p>
-                    </div>
-                    <div class="column is-2 has-text-right">
-                        <p><a href="#">Refund Policy</a></p>
-                    </div>
-                </div>
-                <div class="columns">
-                    <div class="column is-10 has-text-centered">
-                        Copyright <a href="www.avosa.co.za" target="_blank">Avosa software 2019</a>
-                    </div>
-                </div>
-            </div>
-
-        </footer>
+        </div>
     </div>
-</section>
+    <hr>
+    <div class="columns is-mobile has-text-centered">
+        <div class="column">
+            Copyright <a href="www.avosa.co.za" target="_blank">Avosa software 2019</a><br>
+            <a class="button is-text has-text-right">Terms and Conditions</a>
+        </div>
+    </div>
+</footer>
