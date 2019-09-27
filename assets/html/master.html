@@ -78,14 +78,12 @@
         <div class="column is-10" style="overflow: auto; height: 100vh;">
             {{.LayoutContent}}
             {{template "footer.html" .}}
-            {{template "toast.html" .}}
         </div>
     </section>
     {{else}}
     <section class="section">
         {{.LayoutContent}}
         {{template "footer.html" .}}
-        {{template "toast.html" .}}
     </section>
     {{end}}
     <input type="hidden" id="InstanceID" value="{{ .Identity.InstanceID }}" />
