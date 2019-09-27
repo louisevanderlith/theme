@@ -13,5 +13,5 @@ import (
 func Setup(e resins.Epoxi) {
 	routr := e.Router().(*mux.Router)
 	e.JoinPath(routr, "/asset/{group:[a-z]+}", "Assets by Group", http.MethodGet, roletype.Unknown, mix.JSON, assets.GetAll)
-	e.JoinPath(routr, "/asset/{group:[a-z]+}/{file}", "Assets by Group", http.MethodGet, roletype.Unknown, mix.Octet, assets.Get)
+	e.JoinPath(routr, "/asset/{group:[a-z]+}/{file}", "Download Assets", http.MethodGet, roletype.Unknown, mix.Octet, assets.Get)
 }

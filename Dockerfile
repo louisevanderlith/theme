@@ -49,7 +49,6 @@ FROM scratch
 COPY --from=builder /box/theme .
 COPY --from=pyltjie /arrow/build/*.dart.js dist/js/
 COPY --from=styler /scissor/dist/css dist/css
-COPY conf conf
 
 COPY assets/html dist/html
 COPY assets/fonts dist/fonts
