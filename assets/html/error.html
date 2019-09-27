@@ -1,12 +1,16 @@
-<section class="hero is-danger welcome is-small">
+<section class="hero is-primary">
     <div class="hero-body">
-        <div class="container">
-            <h1 class="title">
-                Error Occurred
-            </h1>
-            <h2 class="sub-title">
-                {{.Error}}
-            </h2>
+        <div class="columns">
+            <div class="column is-12">
+                <div class="container content">
+                    <i class="is-large fas fa-bug"></i>
+                    <i class="is-large fas fa-code"></i>
+                    <h1 class="title">Error occured</h1>
+                    <h3 class="subtitle">
+                        {{.Error}}
+                    </h3>
+                </div>
+            </div>
         </div>
     </div>
 </section>
