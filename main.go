@@ -1,20 +1,27 @@
 package main
 
 import (
-	"os"
-	"path"
-	"strconv"
-
-	"github.com/louisevanderlith/droxolite"
-	"github.com/louisevanderlith/droxolite/bodies"
-	"github.com/louisevanderlith/droxolite/do"
-	"github.com/louisevanderlith/droxolite/element"
-	"github.com/louisevanderlith/droxolite/resins"
-	"github.com/louisevanderlith/droxolite/servicetype"
+	"github.com/gin-gonic/gin"
+	"github.com/louisevanderlith/theme/controllers/assets"
 	"github.com/louisevanderlith/theme/core"
-	"github.com/louisevanderlith/theme/routers"
 )
 
+func main() {
+	core.CreateContext()
+	defer core.Shutdown()
+
+	r := gin.Default()
+	r.GET("/asset/:group", assets.GetAll)
+	r.GET("/asset/:group/:file", assets.Get)
+
+	err := r.Run(":8093")
+
+	if err != nil {
+		panic(err)
+	}
+}
+
+/*
 func main() {
 	keyPath := os.Getenv("KEYPATH")
 	pubName := os.Getenv("PUBLICKEY")
@@ -50,4 +57,4 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-}
+}*/

@@ -29,22 +29,23 @@ func (a Asset) Valid() (bool, error) {
 	return husk.ValidateStruct(&a)
 }
 
-func FindCachedAsset(group, name string) (io.Reader, error) {
+func FindCachedAsset(group, name string) (io.Reader, int64, error) {
 	if len(group) < 2 {
-		return nil, errors.New("group too short")
+		return nil, 0, errors.New("group too short")
 	}
 
 	if len(name) < 3 || !strings.Contains(name, ".") {
-		return nil, errors.New("name is invalid")
+		return nil, 0, errors.New("name is invalid")
 	}
 
 	upload, err := ctx.Assets.FindFirst(byGroupAndName(group, name))
 
 	if err != nil {
-		return nil, err
+		return nil, 0, err
 	}
 
-	return bytes.NewReader(upload.Data().(*Asset).BLOB), nil
+	data := upload.Data().(Asset).BLOB
+	return bytes.NewReader(data), int64(len(data)), nil
 }
 
 func ListCachedAssets(group string) ([]string, error) {
@@ -58,7 +59,7 @@ func ListCachedAssets(group string) ([]string, error) {
 
 	var result []string
 	for enumer.MoveNext() {
-		obj := enumer.Current().Data().(*Asset)
+		obj := enumer.Current().Data().(Asset)
 		result = append(result, obj.Name)
 	}
 
