@@ -1,41 +1,8 @@
 <footer class="footer" style="padding-bottom: 2em">
     <div class="columns is-mobile has-text-centered">
         <div class="column">
-            <h4 class="title is-4">Lets get social</h4>
-            <p>
-                {{range $key, $val := .Identity.Footer.SocialLinks}}
-                <a href="{{$val.URL}}" target="_blank">
-                    <i class="fab {{$val.Icon}} fa-2x" style="display: inline-block; margin-right: 1em;"></i>
-                </a>
-                {{end}}
-            </p>
-        </div>
-        <div class="column is-hidden-mobile">
-            <h4 class="title is-4">Other links</h4>
-            <p>
-                {{range $key, $val := .Identity.Footer.OtherLinks}}
-                <a href="{{$val.URL}}" target="_blank">
-                    <i class="fab {{$val.Icon}} fa-2x" style="display: inline-block; margin-right: 1em;"></i>
-                </a>
-                {{end}}
-            </p>
-        </div>
-        <div class="column">
-            <h4 class="title is-4">Our sites</h4>
-            <p><a href="https://www.avosa.co.za" target="_blank">Avosa</a></p>
-            <p><a href="#">IdealCar</a></p>
-            <p><a href="#">Idealmart</a></p>
-            <p><a href="#">Getproperty</a></p>
-            <p><a href="#">Getparts</a></p>
-            <p><a href="#">Carhome</a></p>
-
-        </div>
-    </div>
-    <hr>
-    <div class="columns is-mobile has-text-centered">
-        <div class="column">
             Copyright <a href="www.avosa.co.za" target="_blank">Avosa software 2019</a><br>
-            <a class="button is-text has-text-right">Terms and Conditions</a>
+            <a href="{{.Identity.GetTerm "t&cs"}}" class="button is-text has-text-right">Terms and Conditions</a>
         </div>
     </div>
 </footer>
