@@ -1,26 +1,30 @@
 package handles
 
 import (
-	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/louisevanderlith/kong"
 	"github.com/louisevanderlith/theme/handles/assets"
 	"github.com/rs/cors"
 	"net/http"
-	"strings"
 )
 
-func SetupRoutes(host, scrt, authUrl string) http.Handler{
+func SetupRoutes(scrt, secureUrl string) http.Handler {
 	r := mux.NewRouter()
 
-	view := kong.ResourceMiddleware("theme.assets.view", scrt, authUrl, assets.View)
+	view := kong.ResourceMiddleware("theme.assets.view", scrt, secureUrl, assets.View)
 	r.HandleFunc("/asset/{group:[a-z]+}", view).Methods(http.MethodGet)
 
 	//dwnld := kong.ResourceMiddleware("theme.assets.download", scrt, authUrl, assets.Download)
 	r.HandleFunc("/asset/{group:[a-z]+}/{file}", assets.Download).Methods(http.MethodGet)
 
+	lst, err := kong.Whitelist(http.DefaultClient, secureUrl, "theme.assets.view", scrt)
+
+	if err != nil {
+		panic(err)
+	}
+
 	corsOpts := cors.New(cors.Options{
-		AllowedOrigins: []string{fmt.Sprintf("https://*%s", strings.TrimSuffix(host, "/"))}, //you service is available and allowed for this base url
+		AllowedOrigins: lst, //you service is available and allowed for this base url
 		AllowedMethods: []string{
 			http.MethodGet,
 			http.MethodOptions,

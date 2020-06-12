@@ -30,6 +30,7 @@
           content="{{ .Identity.GetResourceURL "artifact" }}/download/{{.Identity.GetClaim "kong.logo"}}"/>
 
     <link rel="stylesheet" href="{{ .Identity.GetResourceURL "theme" }}/asset/css/bundle.css"/>
+    <link rel="stylesheet" href="{{ .Identity.GetResourceURL "theme" }}/asset/css/{{.Identity.GetProfile}}.css"/>
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
 </head>
 

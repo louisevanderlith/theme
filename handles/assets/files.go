@@ -22,7 +22,11 @@ func Download(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "", http.StatusBadRequest)
 	}
 
-	ctx.Serve(http.StatusOK, mix.Octet(fileName, res))
+	err = ctx.Serve(http.StatusOK, mix.Octet(fileName, res))
+
+	if err != nil {
+		log.Println(err)
+	}
 }
 
 // View - all
@@ -37,5 +41,9 @@ func View(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	ctx.Serve(http.StatusOK, mix.JSON(assets))
+	err = ctx.Serve(http.StatusOK, mix.JSON(assets))
+
+	if err != nil {
+		log.Println(err)
+	}
 }
