@@ -44,11 +44,15 @@ func FindCachedAsset(group, name string) (io.Reader, error) {
 		return nil, err
 	}
 
-	return bytes.NewReader(upload.Data().(*Asset).BLOB), nil
+	return bytes.NewReader(upload.Data().(Asset).BLOB), nil
 }
 
 func ListCachedAssets(group string) ([]string, error) {
-	coll := ctx.Assets.Find(1, 100, byGroup(group))
+	coll, err := ctx.Assets.Find(1, 100, byGroup(group))
+
+	if err != nil {
+		return nil, err
+	}
 
 	if !coll.Any() {
 		return nil, errors.New("nothing found")
@@ -58,7 +62,7 @@ func ListCachedAssets(group string) ([]string, error) {
 
 	var result []string
 	for enumer.MoveNext() {
-		obj := enumer.Current().Data().(*Asset)
+		obj := enumer.Current().Data().(Asset)
 		result = append(result, obj.Name)
 	}
 
