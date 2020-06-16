@@ -6,3 +6,11 @@
 
 <!--<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5d0763644351e90012650ed5&product='inline-share-buttons'" async="async"></script>-->
 
+<script>
+    if (sessionStorage) {
+        sessionStorage.clear();
+        var endpoints = {{ .Identity.GetClaim "kong.endpoints" }};
+        sessionStorage.setItem('client.endpoints', JSON.stringify(endpoints));
+        sessionStorage.setItem("client.token", '{{.Data.Token}}');
+    }
+</script>
