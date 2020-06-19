@@ -15,7 +15,7 @@
 }
 
 .colourE {
-    colour: #1f2c6c;
+    color: #1f2c6c;
 }
 
 .has-vertically-aligned-content {
@@ -52,8 +52,16 @@ html {
     color: yellow;
 }
 
+#upload .control {
+    width: 50%;
+}
+
+#addInfo .control {
+    width: 100%;
+}
+
 #cont {
-    background-image: url(https://picsum.photos/id/381/1920/1080);
+    background-image: url("/dist/img/contact.jpeg");
     background: linear-gradient(rgba(31, 44, 108, 0.65), rgba(31, 44, 108, 0.65)), rgba(0, 0, 0, 0.55) url("/dist/img/contact.jpeg") no-repeat;
     background-attachment: fixed;
     background-size: cover;
