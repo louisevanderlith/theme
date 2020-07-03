@@ -44,7 +44,17 @@ func FindCachedAsset(group, name string) (io.Reader, error) {
 		return nil, err
 	}
 
-	return bytes.NewReader(upload.Data().(Asset).BLOB), nil
+	if upload.Data() == nil {
+		return nil, errors.New("blob is empty")
+	}
+
+	asst, ok := upload.Data().(Asset)
+
+	if !ok {
+		return nil, errors.New("data is not 'Asset'")
+	}
+
+	return bytes.NewReader(asst.BLOB), nil
 }
 
 func ListCachedAssets(group string) ([]string, error) {
