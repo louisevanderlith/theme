@@ -1,35 +1,27 @@
 <footer class="footer">
-    <div class="container">
-        <div class="columns is-multiline">
-            <div class="column is-4" style="text-align: center;">
-                <div class="content">
-                    <div>
-                        <h6>FOLLOW {{.Identity.GetProfile }} ON SOCIAL MEDIA</h6>
-                        <div class="social-media">
-                            <a href="https://facebook.com/avosasoftware/" target="_blank">
-                                <i class="fab fa-facebook-square fa-3x colourA"
-                                    aria-hidden="true"></i></a> &nbsp;&nbsp;
-                            <a href="https://instagram.com/avosasoftware/" target="_blank">
-                                <i class="fab fa-instagram fa-3x colourA"
-                                    aria-hidden="true"></i></a> &nbsp;&nbsp;
-                            <a href="https://twitter.com/avosasoftware/" target="_blank">
-                                <i class="fab fa-twitter fa-3x colourA"
-                                    aria-hidden="true"></i></a>
-                        </div>
-
+    <div class="columns is-multiline">
+        <div class="column is-4">
+            <div class="content">     
+                    <h6>FOLLOW AVOSA ON SOCIAL MEDIA</h6>
+                    <div class="social-media">
+                        <a href="https://facebook.com/avosasoftware/" target="_blank">
+                            <i class="fab fa-facebook-square fa-3x colourA" aria-hidden="true"></i></a> &nbsp;&nbsp;
+                        <a href="https://instagram.com/avosasoftware/" target="_blank">
+                            <i class="fab fa-instagram fa-3x colourA" aria-hidden="true"></i></a> &nbsp;&nbsp;
+                        <a href="https://twitter.com/avosasoftware/" target="_blank">
+                            <i class="fab fa-twitter fa-3x colourA" aria-hidden="true"></i></a>
                     </div>
-                </div>
-            </div>
-            <div class="column is-8">
-                <div class="content">
-                    <h6>WHAT WE DO</h6>
-                    <p>•Current Software Upgrades •Custom software •Static Websites •Web Apps •API's</p>
-                </div>
             </div>
         </div>
-        <div class="center">
-            &copy; <a href="www.avosa.co.za" target="_blank">2020, Avosa PTY LTD. All rights reserved.</a><br />
-            <a href="{{.Identity.GetTerm "t&cs"}}" class="button is-text has-text-right">Terms and Conditions</a>
+        <div class="column is-8">
+            <div class="content">
+                <h6>WHAT WE DO</h6>
+                <p>•Current Software Upgrades •Custom software •Static Websites •Web Apps •API's</p>
+            </div>
         </div>
     </div>
+    <p>
+        <a href="www.avosa.co.za" target="_blank">&copy; 2020, Avosa PTY LTD. All rights reserved.</a><br />
+        <a href="{{.Identity.GetTerm "t&cs"}}" target="_blank">Terms and Conditions</a>
+    </p>
 </footer>
