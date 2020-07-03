@@ -1,0 +1,120 @@
+<!-- Begin Scroll Up Button -->
+<a id="toTop" href="#home" title="Go to top">
+    <i class="fas fa-angle-up"></i>
+</a>
+<!-- End Scroll Up Button -->
+<!-- Begin Header -->
+<div class="header-wrapper" id="home">
+    <!-- Begin Hero -->
+    <section class="hero is-large">
+        {{template "mobilenav.html" .}}
+        <!-- Begin Hero Content-->
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h2 class="title">{{.Data.Banner.Heading}}</h2>
+                <h1 class="subtitle profession">{{.Data.Banner.Subtitle}}</h1>
+            </div>
+        </div>
+        <!-- End Hero Content-->
+        {{template "heromenu.html" .}}
+    </section>
+    <!-- End Hero -->
+</div>
+<!-- End Header -->
+
+<!-- Begin Main Content -->
+<div class="main-content">
+    <!-- Begin SectionA Section -->
+    <div class="section-light about-me" id="sectionA">
+        <div class="container">
+            <div class="column is-12 about-me">
+                <h1 class="title has-text-centered section-title">{{.Data.SectionA.Heading}}</h1>
+            </div>
+            <div class="columns is-multiline">
+                <div class="column is-6 has-vertically-aligned-content" data-aos="fade-right">
+                    {{.Data.SectionA.Text | html}}
+                </div>
+                <div class="column is-6 right-image " data-aos="fade-left">
+                    <img class="is-rounded"
+                         src="{{.Identity.GetResourceURL "artifact"}}/download/{{.Data.SectionA.ImageKey}}" alt=""/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End SectionA Content -->
+    <!-- Begin SectionB Section -->
+    <div class="section-dark resume" id="sectionB">
+        <div class="container">
+            <div class="columns is-multiline" data-aos="fade-in" data-aos-easing="linear">
+                <div class="column is-12 about-me">
+                    <h1 class="title has-text-centered section-title">
+                        {{.Data.SectionB.Heading}}
+                    </h1>
+                </div>
+                <div class="column is-10 has-text-centered is-offset-1">
+                    <h2 class="subtitle">
+                        {{.Data.SectionB.Text}}
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Begin Info Content -->
+    <div class="section-color services" id="info">
+        <div class="container">
+            <div class="columns is-multiline">
+                <div class="column is-12 about-me" data-aos="fade-in" data-aos-easing="linear">
+                    <h1 class="title has-text-centered section-title">{{.Data.Info.Heading}}</h1>
+                    <h2 class="subtitle">{{.Data.Info.Text}}</h2>
+                    <br/>
+                </div>
+                <div class="columns is-12">
+                    {{range .Data.Info.Blocks}}
+                        <div class="column is-4 has-text-centered" data-aos="fade-in" data-aos-easing="linear">
+                            <i class="fad {{.Icon}} fa-3x colourA"></i>
+                            <hr/>
+                            <h2>{{.Text}}</h2>
+                        </div>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Info Content -->
+    <!-- Begin Services Content -->
+    <div class="section-dark my-work" id="services">
+        <div class="container">
+            <div class="columns is-multiline" data-aos="fade-in" data-aos-easing="linear">
+                <div class="column is-12">
+                    <h1 class="title has-text-centered section-title">What we Offer</h1>
+                </div>
+                {{range .Data.Services.Records}}
+                    <div class="column is-3">
+                        <a href="{{.Url}}">
+                            <figure class="image is-2by1 work-item"
+                                    style="background-image: url('{{.Identity.GetResourceUrl "artifact"}}/download/{{.ImageKey}}');"
+                            ></figure>
+                        </a>
+                    </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
+    <!-- End Services Content -->
+    {{template "contactus.html" .}}
+</div>
+<!-- End Main Content -->
+
+{{define "scripts"}}
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../js/showcase.js"></script>
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            easing: "ease-out",
+            duration: 800,
+        });
+    </script>
+{{end}}

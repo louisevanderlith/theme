@@ -22,25 +22,29 @@
                 <div class="field">
                     <label class="label colorA">Name</label>
                     <div class="control">
-                        <input id="txtContactName" class="input is-medium" type="text">
+                        <input id="txtContactName" class="input is-medium" required minlength="3" type="text">
+                        <p class="help is-danger"></p>
                     </div>
                 </div>
                 <div class="field">
                     <label class="label colorA">Contact Number</label>
                     <div class="control">
-                        <input id="txtContactContactNo" class="input is-medium" type="text">
+                        <input id="txtContactContactNo" class="input is-medium" required type="tel">
+                        <p class="help is-danger"></p>
                     </div>
                 </div>
                 <div class="field">
                     <label class="label colorA">Email</label>
                     <div class="control">
-                        <input id="txtContactEmail" class="input is-medium" type="text">
+                        <input id="txtContactEmail" class="input is-medium" required type="email">
+                        <p class="help is-danger"></p>
                     </div>
                 </div>
                 <div class="field">
                     <label class="label colorA">Message</label>
                     <div class="control">
-                        <textarea id="txtContactBody" class="textarea is-medium"></textarea>
+                        <textarea id="txtContactBody" maxlength="512" class="textarea is-medium"></textarea>
+                        <p class="help is-danger"></p>
                     </div>
                 </div>
                 <div class="control">

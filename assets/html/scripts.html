@@ -8,9 +8,11 @@
 
 <script>
     if (sessionStorage) {
-        sessionStorage.clear();
-        var endpoints = {{ .Identity.GetClaim "kong.endpoints" }};
+        const endpoints = {{ .Identity.GetClaim "kong.endpoints" }};
         sessionStorage.setItem('client.endpoints', JSON.stringify(endpoints));
-        sessionStorage.setItem("client.token", '{{.Data.Token}}');
+        sessionStorage.setItem("client.token", '{{.Token}}');
     }
 </script>
+
+{{block "scripts" .}}
+{{end}}

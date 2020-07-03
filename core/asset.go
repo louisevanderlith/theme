@@ -17,13 +17,13 @@ type Asset struct {
 	BLOB  []byte `json:"-"` //Blob shouldn't be returned in JSON result sets.
 }
 
-func (a Asset) Valid() (bool, error) {
+func (a Asset) Valid() error {
 	if len(a.Group) < 2 {
-		return false, errors.New("group too short")
+		return errors.New("group too short")
 	}
 
 	if len(a.Name) < 3 || !strings.Contains(a.Name, ".") {
-		return false, errors.New("name is invalid")
+		return errors.New("name is invalid")
 	}
 
 	return husk.ValidateStruct(&a)
