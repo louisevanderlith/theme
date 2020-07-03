@@ -14,18 +14,18 @@ func Download(w http.ResponseWriter, r *http.Request) {
 	ctx := context.New(w, r)
 	group := ctx.FindParam("group")
 	fileName := ctx.FindParam("file")
-
+	
 	res, err := core.FindCachedAsset(group, fileName)
 
 	if err != nil {
-		log.Println(err)
+		log.Println("FindCacheAsset Error", err)
 		http.Error(w, "", http.StatusBadRequest)
 	}
 
 	err = ctx.Serve(http.StatusOK, mix.Octet(fileName, res))
 
 	if err != nil {
-		log.Println(err)
+		log.Println("Serve Error", err)
 	}
 }
 
@@ -36,7 +36,7 @@ func View(w http.ResponseWriter, r *http.Request) {
 	assets, err := core.ListCachedAssets(group)
 
 	if err != nil {
-		log.Println(err)
+		log.Println("View Error", err)
 		http.Error(w, "", http.StatusNotFound)
 		return
 	}
