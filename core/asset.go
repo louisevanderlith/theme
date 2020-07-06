@@ -14,7 +14,7 @@ import (
 type Asset struct {
 	Group string `hsk:"size(5)"`
 	Name  string `hsk:"size(128)"`
-	BLOB  []byte `json:"-"` //Blob shouldn't be returned in JSON result sets.
+	BLOB  []byte `hsk:"null" json:"-"` //Blob shouldn't be returned in JSON result sets.
 }
 
 func (a Asset) Valid() error {

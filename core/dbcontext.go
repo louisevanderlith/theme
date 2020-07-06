@@ -2,6 +2,7 @@ package core
 
 import (
 	"github.com/louisevanderlith/husk"
+	"log"
 )
 
 type context struct {
@@ -26,6 +27,8 @@ func seed() {
 	groups := []string{"css", "fonts", "html", "ico", "js"}
 
 	//Find Files per Group
+	var many []husk.Dataer
+
 	for _, group := range groups {
 		assets, err := ListAssets(group)
 
@@ -47,13 +50,22 @@ func seed() {
 				Name:  asset,
 			}
 
-			rec := ctx.Assets.Create(obj)
-
-			if rec.Error != nil {
-				panic(rec.Error)
-			}
+			many = append(many, obj)
 		}
+	}
 
-		ctx.Assets.Save()
+	tot, err := ctx.Assets.CreateMulti(many...)
+
+	if err != nil {
+		panic(err)
+		return
+	}
+
+	log.Println("Rows Seeded", tot)
+
+	err = ctx.Assets.Save()
+
+	if err != nil {
+		panic(err)
 	}
 }
