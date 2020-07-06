@@ -1,59 +1,54 @@
-<section class="section is-fullheight">
-    <div class="columns is-multiline is-variable ">
-        <div class="column is-8 has-text-left">
-            <h1 class="title is-1" id="conthead">Contact Us</h1>
-            <p class="is-size-4">
-                Didn't find what you are looking for? For any additional info or issues please
-                feel free to contact us here.
-            </p>
-            <br>
-            <div class="social-media">
-                <a href="https://facebook.com/Wheelocarbuyercompany/" target="_blank"><i
-                            class="fab fa-facebook-square fa-3x colourA" aria-hidden="true"></i></a>&nbsp &nbsp
-                <a href="https://instagram.com/wheelo_car_buyer_company_/" target="_blank"><i
-                            class="fab fa-instagram fa-3x colourA" aria-hidden="true"></i></a>&nbsp &nbsp
-                <a href="https://twitter.com/Wheelocarbuyer/" target="_blank"><i
-                            class="fab fa-twitter fa-3x colourA" aria-hidden="true"></i></a>
+<div class="column is-4 about-me">
+    <h1 class="title has-text-left section-title">
+        Contact Us
+    </h1>
+    <p class="has-text-left">
+        Didn't find what you are looking for? For any additional info or issues please
+        feel free to contact us here.
+    </p>
+    <br>
+    <div class="social-media">
+        {{range .Identity.GetClaim "kong.contacts"}}
+            <a href="{{.Value}}" target="_blank">
+                <i class="fab {{.Icon}} fa-3x colourA" aria-hidden="true"></i>
+            </a>
+        {{end}}
+    </div>
+</div>
+<div class="column is-8 is-offset-2">
+    <form id="frmContact" role="form" data-toggle="validator">
+        <div class="field">
+            <label class="label colorA">Name</label>
+            <div class="control">
+                <input id="txtContactName" class="input is-medium" required minlength="3" type="text">
+                <p class="help is-danger"></p>
             </div>
         </div>
-
-        <div class="column is-4 has-text-left">
-            <form id="frmContact" role="form" data-toggle="validator">
-                <div class="field">
-                    <label class="label colorA">Name</label>
-                    <div class="control">
-                        <input id="txtContactName" class="input is-medium" required minlength="3" type="text">
-                        <p class="help is-danger"></p>
-                    </div>
-                </div>
-                <div class="field">
-                    <label class="label colorA">Contact Number</label>
-                    <div class="control">
-                        <input id="txtContactContactNo" class="input is-medium" required type="tel">
-                        <p class="help is-danger"></p>
-                    </div>
-                </div>
-                <div class="field">
-                    <label class="label colorA">Email</label>
-                    <div class="control">
-                        <input id="txtContactEmail" class="input is-medium" required type="email">
-                        <p class="help is-danger"></p>
-                    </div>
-                </div>
-                <div class="field">
-                    <label class="label colorA">Message</label>
-                    <div class="control">
-                        <textarea id="txtContactBody" maxlength="512" class="textarea is-medium"></textarea>
-                        <p class="help is-danger"></p>
-                    </div>
-                </div>
-                <div class="control">
-                    <button type="button" class="button is-link is-fullwidth has-text-weight-medium is-medium"
-                            id="btnContactSubmit">Send Message
-                    </button>
-                </div>
-            </form>
+        <div class="field">
+            <label class="label colorA">Contact Number</label>
+            <div class="control">
+                <input id="txtContactContactNo" class="input is-medium" required type="tel">
+                <p class="help is-danger"></p>
+            </div>
         </div>
-
-    </div>
-</section>
+        <div class="field">
+            <label class="label colorA">Email</label>
+            <div class="control">
+                <input id="txtContactEmail" class="input is-medium" required type="email">
+                <p class="help is-danger"></p>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label colorA">Message</label>
+            <div class="control">
+                <textarea id="txtContactBody" maxlength="512" class="textarea is-medium"></textarea>
+                <p class="help is-danger"></p>
+            </div>
+        </div>
+        <div class="control">
+            <button type="button" class="button is-link is-fullwidth has-text-weight-medium is-medium"
+                    id="btnContactSubmit">Send Message
+            </button>
+        </div>
+    </form>
+</div>
