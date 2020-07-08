@@ -24,6 +24,10 @@ func Shutdown() {
 }
 
 func seed() {
+	if ctx.Assets.Exists(husk.Everything()) {
+		return
+	}
+
 	groups := []string{"css", "fonts", "html", "ico", "js"}
 
 	//Find Files per Group

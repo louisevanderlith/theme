@@ -3,7 +3,10 @@
         Contact Us
     </h1>
     <p class="has-text-left">
-        Didn't find what you are looking for? For any additional info or issues please
+        Didn't find what you are looking for?
+    </p>
+    <p>
+        For any additional information or queries please
         feel free to contact us here.
     </p>
     <br>
@@ -18,30 +21,31 @@
 <div class="column is-8 is-offset-2">
     <form id="frmContact" role="form" data-toggle="validator">
         <div class="field">
-            <label class="label colorA">Name</label>
+            <label for="txtContactName" class="label colorA">Name</label>
             <div class="control">
-                <input id="txtContactName" class="input is-medium" required minlength="3" type="text">
+                <input id="txtContactName" class="input is-medium" placeholder="Timmy" required minlength="3" maxlength="64" type="text">
                 <p class="help is-danger"></p>
             </div>
         </div>
         <div class="field">
-            <label class="label colorA">Contact Number</label>
+            <label for="txtContactContactNo" class="label colorA">Contact Number</label>
             <div class="control">
-                <input id="txtContactContactNo" class="input is-medium" required type="tel">
+                <input id="txtContactContactNo" class="input is-medium" type="tel" minlength="10" maxlength="10"
+                       placeholder="0820001111" required pattern="[0-9]{10}">
                 <p class="help is-danger"></p>
             </div>
         </div>
         <div class="field">
-            <label class="label colorA">Email</label>
+            <label for="txtContactEmail" class="label colorA">Email</label>
             <div class="control">
-                <input id="txtContactEmail" class="input is-medium" required type="email">
+                <input id="txtContactEmail" minlength="3" placeholder="timmy@email.com" class="input is-medium" required type="email">
                 <p class="help is-danger"></p>
             </div>
         </div>
         <div class="field">
-            <label class="label colorA">Message</label>
+            <label for="txtContactBody" class="label colorA">Message</label>
             <div class="control">
-                <textarea id="txtContactBody" maxlength="512" class="textarea is-medium"></textarea>
+                <textarea id="txtContactBody" maxlength="512" placeholder="Your thoughts and ideas." class="textarea is-medium"></textarea>
                 <p class="help is-danger"></p>
             </div>
         </div>

@@ -28,13 +28,13 @@
     <meta name="twitter:description" content="{{.Identity.GetClaim "kong.description"}}"/>
     <meta name="twitter:image"
           content="{{ .Identity.GetResourceURL "artifact" }}/download/{{.Identity.GetClaim "kong.logo"}}"/>
-      {{template "styles.html" .}}
+    {{template "styles.html" .}}
     <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 
 <body>
-{{.LayoutContent}}
-{{template "footer.html" .}}
+{{block "layoutcontent" .}}{{end}}
+{{ template "footer.html" .}}
 {{ template "scripts.html" .}}
 </body>
 </html>
