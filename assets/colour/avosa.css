@@ -76,6 +76,7 @@
   .hero .hero-foot {
     height: 50px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.082);
+    color: ghostwhite;
   }
   
   @media (max-width: 599px) {
