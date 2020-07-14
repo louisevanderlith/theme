@@ -5,9 +5,22 @@
             <div class="column is-12 hero-menu-desktop has-text-centered">
                 <ul>
                     {{range .Menu.Items}}
-                        <li class="{{if .Active}}is-active{{end}}">
-                            <a href="{{.Link}}">{{.Text}}</a>
-                        </li>
+                        {{if .Children}}
+                            <li class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link">{{.Text}}</a>
+                                <div class="navbar-dropdown">
+                                    {{range .Children}}
+                                        <a class="navbar-item" href="{{.Link}}">
+                                            {{.Text}}
+                                        </a>
+                                    {{end}}
+                                </div>
+                            </li>
+                        {{else}}
+                            <a class="navbar-item" href="{{.Link}}">
+                                {{.Text}}
+                            </a>
+                        {{end}}
                     {{end}}
                 </ul>
             </div>

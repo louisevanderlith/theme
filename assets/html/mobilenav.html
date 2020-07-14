@@ -12,11 +12,22 @@
     <div id="mobile-nav" class="navbar-menu">
         <div class="navbar-end">
             {{range .Menu.Items}}
-                <div class="navbar-item">
+                {{if .Children}}
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">{{.Text}}</a>
+                        <div class="navbar-dropdown">
+                            {{range .Children}}
+                                <a class="navbar-item" href="{{.Link}}">
+                                    {{.Text}}
+                                </a>
+                            {{end}}
+                        </div>
+                    </div>
+                {{else}}
                     <a class="navbar-item" href="{{.Link}}">
                         {{.Text}}
                     </a>
-                </div>
+                {{end}}
             {{end}}
         </div>
     </div>
