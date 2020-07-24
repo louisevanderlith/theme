@@ -7,6 +7,7 @@ void main() {
 
 void enableTabs() {
   document.body.onClick.matches("#nav li").listen(tabClick);
+  document.body.onClick.matches(".card-header").listen(collapseClick);
 }
 
 void tabClick(Event e) {
@@ -36,6 +37,27 @@ void toggleTab(selectedNav, targetId) {
       tab.style.display = "none";
     }
   });
+}
+
+void collapseClick(Event e) {
+  Element elem = e.matchingTarget;
+  Element content = elem.nextElementSibling;
+
+  if (content != null) {
+    Element icon = elem.children
+        .where((element) => element.classes.contains("card-header-icon"))
+        .first;
+    Element img = icon.children.first.children.first;
+    if (content.hidden) {
+      img.classes.remove('fa-angle-down');
+      img.classes.add('fa-angle-up');
+    } else {
+      img.classes.remove('fa-angle-up');
+      img.classes.add('fa-angle-down');
+    }
+
+    content.hidden = !content.hidden;
+  }
 }
 
 void enableBurger() {
