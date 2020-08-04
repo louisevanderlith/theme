@@ -30,7 +30,7 @@ COPY assets/css ./assets/css
 COPY gulpfile.js .
 RUN gulp
 
-FROM google/dart AS pyltjie
+FROM google/dart:latest AS pyltjie
 ENV PATH="$PATH:/root/.pub-cache/bin"
 
 WORKDIR /arrow
