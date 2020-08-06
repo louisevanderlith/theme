@@ -26,7 +26,7 @@ func (a Asset) Valid() error {
 		return errors.New("name is invalid")
 	}
 
-	return husk.ValidateStruct(a)
+	return husk.ValidateStruct(&a)
 }
 
 func FindCachedAsset(group, name string) (io.Reader, error) {

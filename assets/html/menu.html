@@ -3,12 +3,13 @@
     <div class="hero-foot--wrapper">
         <div class="columns">
             <div class="column is-12 hero-menu-desktop has-text-centered">
+                
                 <ul>
-                    {{range $_, $m := .Menu.Items}}
-                        <li class="{{if $m.Active}}is-active{{end}}">
-                            <a href="{{$m.Link}}">{{$m.Text}}</a>
-                        </li>
-                    {{end}}
+                    {{range .Menu.Items}}
+                    <li class="{{if .Active}}is-active{{end}}">
+                        <a href="{{.Link}}">{{.Text}}</a>
+                    </li>
+                    {{end}}    
                 </ul>
             </div>
         </div>

@@ -24,9 +24,9 @@ func Shutdown() {
 }
 
 func seed() {
-	if ctx.Assets.Exists(husk.Everything()) {
-		return
-	}
+	//if ctx.Assets.Exists(husk.Everything()) {
+	//	ctx.Assets
+	//}
 
 	groups := []string{"css", "fonts", "html", "ico", "js"}
 
