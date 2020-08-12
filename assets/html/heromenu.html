@@ -1,0 +1,30 @@
+<!-- Begin Hero Menu -->
+<div class="hero-foot">
+    <div class="hero-foot--wrapper">
+        <div class="columns">
+            <div class="column is-10 hero-menu-desktop has-text-centered">
+                <ul>
+                    {{range .Menu.Items}}
+                        {{if .Children}}
+                            <li class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link">{{.Text}}</a>
+                                <div class="navbar-dropdown">
+                                    {{range .Children}}
+                                        <a class="navbar-item" href="{{.Link}}">
+                                            {{.Text}}
+                                        </a>
+                                    {{end}}
+                                </div>
+                            </li>
+                        {{else}}
+                            <a class="navbar-item" href="{{.Link}}">
+                                {{.Text}}
+                            </a>
+                        {{end}}
+                    {{end}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Hero Menu -->

@@ -1,0 +1,18 @@
+<!-- Begin Hero Menu -->
+<div class="hero-foot ">
+    <div class="hero-foot--wrapper">
+        <div class="columns">
+            <div class="column is-12 hero-menu-desktop has-text-centered">
+                
+                <ul>
+                    {{range .Menu.Items}}
+                    <li class="{{if .Active}}is-active{{end}}">
+                        <a href="{{.Link}}">{{.Text}}</a>
+                    </li>
+                    {{end}}    
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Hero Menu -->

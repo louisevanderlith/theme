@@ -1,61 +1,27 @@
-<section class="hero is-margineless is-paddingless">
-    <div class="hero-body is-margineless is-paddingless">
-        <footer class="footer">
-            <div class="content has-text-centered">
-                <div class="columns">
-                    <div class="column is-3 has-text-left">
-                        <h2 class="sub-heading">Follow us</h2>
-                        <p>
-                            {{range $key, $val := .Identity.Footer.SocialLinks}}
-                            <a href="{{$val.URL}}" target="_blank">
-                                <i class="fab {{$val.Icon}} fa-2x"
-                                    style="color: ffe401; display: inline-block; margin-right: 0.5em;"></i>
-                            </a>
-                            {{end}}
-                        </p>
+<footer class="footer">
+    <div class="columns is-multiline">
+        <div class="column is-4">
+            <div class="content">     
+                    <h6>FOLLOW AVOSA ON SOCIAL MEDIA</h6>
+                    <div class="social-media">
+                        <a href="https://facebook.com/avosasoftware/" target="_blank">
+                            <i class="fab fa-facebook-square fa-3x colourA" aria-hidden="true"></i></a> &nbsp;&nbsp;
+                        <a href="https://instagram.com/avosasoftware/" target="_blank">
+                            <i class="fab fa-instagram fa-3x colourA" aria-hidden="true"></i></a> &nbsp;&nbsp;
+                        <a href="https://twitter.com/avosasoftware/" target="_blank">
+                            <i class="fab fa-twitter fa-3x colourA" aria-hidden="true"></i></a>
                     </div>
-                    <div class="column is-4 has-text-centered">
-                        <h2 class="sub-heading">Advertise</h2>
-                        <p><a href="#">List your property for sale</a></p>
-                        <p><a href="#">List your property for rent</a></p>
-                        <p><a href="#">Listings for state agents</a></p>
-                    </div>
-                    <div class="column is-3 has-text-right">
-                        <h2 class="sub-heading">Our Sites</h2>
-                        <p><a href="https://www.avosa.co.za" target="_blank">Avosa</a></p>
-                        <p><a href="#">IdealCar</a></p>
-                        <p><a href="#">Idealmart</a></p>
-                        <p><a href="#">Getproperty</a></p>
-                        <p><a href="#">Getparts</a></p>
-                        <p><a href="#">Carhome</a></p>
-
-                    </div>
-                </div>
-                <hr>
-                <div class="columns">
-                    <div class="column is-2 has-text-centered">
-                        <p><a href="#">Acceptable Use Policy</a></p>
-                    </div>
-                    <div class="column is-2 has-text-right">
-                        <p><a href="#">Terms of Service</a></p>
-                    </div>
-                    <div class="column is-2 has-text-right">
-                        <p><a href="#">Security Policy</a></p>
-                    </div>
-                    <div class="column is-2 has-text-right">
-                        <p><a href="#">Privacy Policy</a></p>
-                    </div>
-                    <div class="column is-2 has-text-right">
-                        <p><a href="#">Refund Policy</a></p>
-                    </div>
-                </div>
-                <div class="columns">
-                    <div class="column is-10 has-text-centered">
-                        Copyright <a href="www.avosa.co.za" target="_blank">Avosa software 2019</a>
-                    </div>
-                </div>
             </div>
-
-        </footer>
+        </div>
+        <div class="column is-8">
+            <div class="content">
+                <h6>WHAT WE DO</h6>
+                <p>•Current Software Upgrades •Custom software •Static Websites •Web Apps •API's</p>
+            </div>
+        </div>
     </div>
-</section>
+    <p>
+        <a href="www.avosa.co.za" target="_blank">&copy; 2020, Avosa PTY LTD. All rights reserved.</a><br />
+        <a href="{{.Identity.GetTerm "t&cs"}}" target="_blank">Terms and Conditions</a>
+    </p>
+</footer>

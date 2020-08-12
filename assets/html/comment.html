@@ -1,4 +1,4 @@
-{{ range $key, $val := .}}
+{{ range $key, $val := .Comments}}
 <article class="media">
     <figure class="media-left">
         <p class="image is-64x64">
@@ -56,12 +56,16 @@
             </div>
             <div class="field">
                 <div class="control">
-                    <button id="btnComment" class="button is-info">Comment</button>
+                    <button type="button" id="btnComment" class="button is-info">Comment</button>
                 </div>
             </div>
         </form>
     </div>
 </article>
 {{else}}
-<span>Please login to Comment</span>
+<div class="container">
+    <div class="notification">
+        <p>Please <button class="button is-small is-info needs-login">Login</button> to Comment.</p>
+    </div>
+</div>
 {{end}}

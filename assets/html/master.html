@@ -7,91 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="author" content="avosa software">
+    <meta name="author" content="avosa PTY LTD">
+    <meta name="Language" content="en"/>
+    <meta name="Country" content="ZA"/>
     <title>{{.Title}}</title>
-    <link rel="shortcut icon" href="https://theme{{.Identity.Host}}asset/ico/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="https://theme{{.Identity.Host}}asset/ico/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ .Identity.GetResourceURL "theme" }}/asset/ico/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ .Identity.GetResourceURL "theme" }}/asset/ico/favicon.ico" type="image/x-icon">
 
-    <meta property="og:title" content="{{.Title}}">
+    <!-- For Facebook -->
+    <meta property="og:title" content="{{.Name}}">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://artifact{{.Identity.Host}}download/{{.Identity.LogoKey}}">
-    <meta property="og:url" content="https://www{{.Identity.Host}}">
-    <meta property="og:description" content="">
+    <meta property="og:image"
+          content="{{ .Identity.GetResourceURL "artifact" }}/download/{{.Identity.GetClaim "kong.logo"}}">
+    <meta property="og:url" content="/">
+    <meta property="og:description" content="{{.Identity.GetClaim "kong.description"}}">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <link rel="stylesheet" href="https://theme{{.Identity.Host}}asset/css/bundle.css" />
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
+    <!-- For Twitter -->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Custom Software and web design - avosa.co.za"/>
+    <meta name="twitter:description" content="{{.Identity.GetClaim "kong.description"}}"/>
+    <meta name="twitter:image"
+          content="{{ .Identity.GetResourceURL "artifact" }}/download/{{.Identity.GetClaim "kong.logo"}}"/>
+    {{template "styles.html" .}}
+    <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 
-<body class="has-navbar-fixed-top">
-    <nav class="navbar is-dark is-fixed-top">
-        <div class="navbar-brand">
-            <a class="navbar-item is-marginless is-paddingless" href="/">
-                <img src="https://artifact{{.Identity.Host}}download/{{.Identity.LogoKey}}" alt="{{.Title}}">
-            </a>
-            <div class="navbar-burger burger" data-target="navBurger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-
-        <div id="navBurger" class="navbar-menu">
-            <div class="navbar-start">
-                {{ template "topmenu.html" .}}
-            </div>
-
-            <div class="navbar-end">
-                {{if .LoggedIn}}
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        {{.Username}}
-                    </a>
-
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                            Dashboard
-                        </a>
-                        <a class="navbar-item">
-                            Profile
-                        </a>
-                        <a class="navbar-item">
-                            Settings
-                        </a>
-                        <hr class="navbar-divider">
-                        <div class="navbar-item">
-                            Logout
-                        </div>
-                    </div>
-                </div>
-                {{end}}
-            </div>
-        </div>
-    </nav>
-
-    {{if .SideMenu }}
-    <section class="columns is-fullheight">
-        {{ template "sidemenu.html" .}}
-        <div class="column is-10" style="overflow: auto; height: 100vh;">
-            {{.LayoutContent}}
-            {{template "footer.html" .}}
-            {{template "toast.html" .}}
-        </div>
-    </section>
-    {{else}}
-    <section class="section">
-        {{.LayoutContent}}
-        {{template "footer.html" .}}
-        {{template "toast.html" .}}
-    </section>
-    {{end}}
-    <input type="hidden" id="InstanceID" value="{{ .Identity.InstanceID }}" />
-    <input type="hidden" id="HostID" value="{{ .Identity.Host }}" />
-
-    {{ template "scripts.html" .}}
+<body>
+{{block "layoutcontent" .}}{{end}}
+{{ template "footer.html" .}}
+{{ template "scripts.html" .}}
 </body>
-
 </html>
