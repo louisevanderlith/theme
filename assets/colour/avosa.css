@@ -1,214 +1,126 @@
 /*.lightblue*/
 .colourA {
-    color: #009899;
+  color: #009899;
 }
 
 /*.darkblue*/
 .colourB {
-    color: #05525a;
+  color: #05525a;
 }
 
 /*.dark*/
 .colourC {
-    color: #0a0e17;
+  color: #0a0e17;
 }
 
 /*.lightgrey*/
 .colourD {
-    color: #949599;
+  color: #949599;
 }
 
 .colourE {
-    color: #009888;
+  color: #009888;
 }
-
-/*.herocolour {
-  background-image: url(../img/top2.jpg);
-  background: linear-gradient(rgba(0, 158, 155, 0.20), rgba(0, 158, 155, 0.45)), rgba(0, 0, 0, 0.55) url("../img/top2.jpg") no-repeat;
-  box-shadow: inset 0 3px 6px rgba(0, 158, 155, 0.45), 0 3px 6px rgba(0, 158, 155, 0.45);
-}
-
-.hero .hero-foot {
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.082);
-  background-color: ghostwhite;
-}
-
-.hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li a:hover {
-  border-bottom: 2px solid #1f2c6c;
-}
-
-.main-content .section-dark {
-  background-color: #f0f3f5;
-}
-
-.main-content .section-dark.resume {
-  background-image: url(../img/secbg.jpg);
-}
-
-@media (max-width: 599px) {
-  .main-content .section-dark.resume {
-      padding-top: 75px;
-      height: auto;
-  }
-}
-
-.main-content .section-dark.my-work .work-item {
-  margin-bottom: 1rem;
-  -webkit-transition: all .1s ease-in-out;
-  transition: all .1s ease-in-out;
-  border-radius: 5px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
-}
-
-.main-content .section-dark.my-work .work-item:hover {
-  -webkit-transform: scale(1.055) translateY(-2px);
-  transform: scale(1.055) translateY(-2px);
-  -webkit-box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
-  box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
-}
-
-.main-content .section-color.services {
-  background: linear-gradient(rgba(0, 158, 155, 0.10), rgba(0, 158, 155, 0.12)), rgba(0, 0, 0, 0.55);
-  padding: 70px;
-}
-
-#toTop {
-  height: 50px;
-  width: 50px;
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  border: none;
-  outline: none;
-  background-color: rgba(0, 158, 155, 0.3);
-  cursor: pointer;
-  border-radius: 50%;
-  font-size: 2rem;
-  box-shadow: 0 5px 20px rgba(0, 158, 155, 0.3);
-}
-
-#toTop a {
-  color: white;
-}
-
-#toTop:hover {
-  background-color: #43485c;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-  background-color: rgba(245, 245, 245, 0);
-}
-
-::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #43485c;
-}*/
 
 .hero {
-  background-image: url(https://picsum.photos/id/1054/1920/1080);
-  background: linear-gradient(rgba(0, 158, 155, 0.20), rgba(0, 158, 155, 0.45)), rgba(0, 0, 0, 0.55) url("https://picsum.photos/id/1054/1920/1080") no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  color: white;
-  box-shadow: inset 0 3px 6px rgba(0, 158, 155, 0.45), 0 3px 6px rgba(0, 158, 155, 0.45);
+background-image: url(https://picsum.photos/id/1054/1920/1080);
+background: linear-gradient(rgba(0, 158, 155, 0.20), rgba(0, 158, 155, 0.45)), rgba(0, 0, 0, 0.55) url("https://picsum.photos/id/1054/1920/1080") no-repeat;
+background-attachment: fixed;
+background-size: cover;
+color: white;
+box-shadow: inset 0 3px 6px rgba(0, 158, 155, 0.45), 0 3px 6px rgba(0, 158, 155, 0.45);
 }
 
 
 .hero .subtitle {
-  color: whitesmoke;
+color: whitesmoke;
 }
 
 .hero .hero-foot {
-  background: white;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.082);
+background: white;
+box-shadow: 0 2px 15px rgba(0, 0, 0, 0.082);
 }
 
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li.is-active a {
-  border-bottom: 2px solid rgba(0, 158, 155, 0.75);
+border-bottom: 2px solid rgba(0, 158, 155, 0.75);
 }
 
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li a {
-  color: rgba(0, 158, 155, 0.75);
+color: black;
 }
 
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li a:hover {
-  color: white;
-  border-bottom: 2px solid rgba(0, 158, 155, 0.75);
+color:  black;
+border-bottom: 2px solid rgba(0, 158, 155, 0.45);
 }
 
 .main-content {
-  color: rgba(0, 158, 155, 0.75);
+color: black;
 }
 
 .main-content .section-dark {
-  background-color: #f0f3f5;
+background-color: #f0f3f5;
 }
 
 .main-content .section-dark.resume button {
-  border: 2px solid #43485c;
-  background: white;
-  color: #43485c;
+border: 2px solid #43485c;
+background: white;
+color: #43485c;
 }
 
 .main-content .section-dark.my-work .work-item {
-  box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
+box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
 }
 
 .main-content .section-dark.my-work .work-item:hover {
-  -webkit-box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
-  box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
+-webkit-box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
+box-shadow: 0 2px 25px 0 rgba(30, 30, 30, 0.1);
 }
-  
+
 .main-content .section-light.about-me .right-image img {
-  box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
+box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
 }
 
 .main-content .section-light.contact button {
-  background-color: #43485c;
-  color: white;
+background-color: #43485c;
+color: white;
 }
 
 .main-content .section-color.services {
-  background-color: #43485c;
-  color: white;
+background-color: #43485c;
+color: white;
 }
 
 .main-content .section-color.services .title,
 .main-content .section-color.services .subtitle {
-  color: white;
+color: white;
 }
 
 .main-content .section-title {
-  color: #43485c;
+color: #43485c;
 }
 
 #toTop {
-  background-color: rgba(0, 158, 155, 0.45);
-  color: white;
-  box-shadow: 0 5px 20px rgba(0, 158, 155, 0.85);
+background-color: rgba(0, 158, 155, 0.45);
+color: white;
+box-shadow: 0 5px 20px rgba(0, 158, 155, 0.85);
 }
 
 #toTop a {
-  color: white;
+color: white;
 }
 
 #toTop:hover {
-  background-color: #43485c;
+background-color: #43485c;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  background-color: rgba(245, 245, 245, 0);
+width: 8px;
+background-color: rgba(245, 245, 245, 0);
 }
 
 ::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #43485c;
+box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+background-color: #43485c;
 }
