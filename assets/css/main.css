@@ -83,13 +83,6 @@ html {
   padding: 20px;
 }
 
-.main-content .section-dark.resume button {
-  height: 50px;
-  width: 250px;
-  font-size: 1rem;
-  text-transform: uppercase;
-}
-
 .main-content .section-dark.my-work {
   padding: 120px;
 }
@@ -109,53 +102,24 @@ html {
   background-repeat: no-repeat;
 }
 
-.main-content .section-dark.my-work .work-item:hover {
-  -webkit-transform: scale(1.055) translateY(-2px);
-  transform: scale(1.055) translateY(-2px);
-}
-
 .main-content .section-light {
   padding: 30px;
 }
 
-.main-content .section-light.about-me {
-  padding-bottom: 100px;
-}
-
-.main-content .section-light.about-me .is-larger {
-  font-size: 1.2rem;
-}
-
 @media (max-width: 599px) {
-  .main-content .section-light.about-me .about-links {
+  .main-content .section-light.about-us .about-links {
     text-align: center;
   }
 }
 
-.main-content .section-light.about-me .right-image img {
-  border-radius: 11px;
-  margin: 20px;
+.main-content .section-light.about-us .right-image img {
+  border-radius: 8px;
 }
 
 @media (max-width: 599px) {
-  .main-content .section-light.about-me .right-image img {
+  .main-content .section-light.about-us .right-image img {
     margin: auto;
   }
-}
-
-.main-content .section-light.skills {
-  padding: 100px;
-}
-
-@media (max-width: 599px) {
-  .main-content .section-light.skills {
-    padding: 50px 20px 40px 20px;
-    padding-bottom: 20px;
-  }
-}
-
-.main-content .section-light.skills h1 {
-  padding: 10px;
 }
 
 .main-content .section-light.contact {

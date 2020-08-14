@@ -12,9 +12,9 @@
     <br>
     <div class="social-media">
         {{range .Identity.GetClaim "kong.contacts"}}
-            <a href="{{.Value}}" target="_blank">
-                <i class="fab {{.Icon}} fa-3x colourA" aria-hidden="true"></i>
-            </a>
+        <a href="{{.Value}}" target="_blank">
+            &nbsp;&nbsp; <i class="fab {{.Icon}} fa-3x colourA" aria-hidden="true"></i>
+        </a>
         {{end}}
     </div>
 </div>
@@ -23,7 +23,8 @@
         <div class="field">
             <label for="txtContactName" class="label colorA">Name</label>
             <div class="control">
-                <input id="txtContactName" class="input is-medium" placeholder="Timmy" required minlength="3" maxlength="64" type="text">
+                <input id="txtContactName" class="input is-medium" placeholder="Timmy" required minlength="3"
+                    maxlength="64" type="text">
                 <p class="help is-danger"></p>
             </div>
         </div>
@@ -31,27 +32,29 @@
             <label for="txtContactContactNo" class="label colorA">Contact Number</label>
             <div class="control">
                 <input id="txtContactContactNo" class="input is-medium" type="tel" minlength="10" maxlength="10"
-                       placeholder="0820001111" required pattern="[0-9]{10}">
+                    placeholder="0820001111" required pattern="[0-9]{10}">
                 <p class="help is-danger"></p>
             </div>
         </div>
         <div class="field">
             <label for="txtContactEmail" class="label colorA">Email</label>
             <div class="control">
-                <input id="txtContactEmail" minlength="3" placeholder="timmy@email.com" class="input is-medium" required type="email">
+                <input id="txtContactEmail" minlength="3" placeholder="timmy@email.com" class="input is-medium" required
+                    type="email">
                 <p class="help is-danger"></p>
             </div>
         </div>
         <div class="field">
             <label for="txtContactBody" class="label colorA">Message</label>
             <div class="control">
-                <textarea id="txtContactBody" maxlength="512" placeholder="Your thoughts and ideas." class="textarea is-medium"></textarea>
+                <textarea id="txtContactBody" maxlength="512" placeholder="Your thoughts and ideas."
+                    class="textarea is-medium"></textarea>
                 <p class="help is-danger"></p>
             </div>
         </div>
         <div class="control">
             <button type="button" class="button is-link is-fullwidth has-text-weight-medium is-medium"
-                    id="btnContactSubmit">Send Message
+                id="btnContactSubmit">Send Message
             </button>
         </div>
     </form>

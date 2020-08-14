@@ -20,7 +20,7 @@
 
 .hero {
   background-image: url(https://picsum.photos/id/964/1920/1080);
-  background: linear-gradient(rgba(13, 25, 163, 0.20), rgba(13, 25, 163, 0.45)), rgba(0, 0, 0, 0.55) url("https://picsum.photos/id/964/1920/1080") no-repeat;
+  background: linear-gradient(rgba(13, 25, 163, 0.35), rgba(13, 25, 163, 0.45)), rgba(0, 0, 0, 0.55) url("https://picsum.photos/id/964/1920/1080") no-repeat;
   background-attachment: fixed;
   background-size: cover;
   color: white;
@@ -47,7 +47,7 @@
   
   .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li a:hover {
   color:  black;
-  border-bottom: 2px solid rgba(13, 25, 163, 0.45);
+  border-bottom: 2px solid rgba(13, 25, 163, 0.9);
   }
   
   .main-content {
@@ -74,7 +74,7 @@
   }
   
   .main-content .section-light.about-me .right-image img {
-  box-shadow: 0 5px 20px rgba(13, 25, 163, 0.3);
+  box-shadow: 0 5px 20px rgba(13, 25, 163, 0.4);
   }
   
   .main-content .section-light.contact button {
@@ -97,9 +97,9 @@
   }
   
   #toTop {
-  background-color: rgba(4, 76, 98, 0.85);
+  background-color: rgba(4, 76, 98, 0.95);
   color: white;
-  box-shadow: 0 5px 20px rgba(4, 76, 98, 0.45);
+  box-shadow: 0 5px 20px rgba(4, 76, 98, 0.5);
   }
   
   #toTop a {
