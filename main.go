@@ -21,7 +21,7 @@ func main() {
 		ReadTimeout:  time.Second * 15,
 		WriteTimeout: time.Second * 15,
 		Addr:         ":8093",
-		Handler:      handles.SetupRoutes(*srcSecrt, *securty),
+		Handler:      handles.SetupRoutes(*srcSecrt, *securty, ""),
 	}
 
 	err := srvr.ListenAndServe()
