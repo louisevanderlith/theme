@@ -1,30 +1,30 @@
 .colourA {
-    color: #d80032;
+    color: rgba(212, 66, 6, 1);
 }
 
 .colourB {
-    color: #ef233c;
+    color: rgb(4, 76, 98);
 }
 
 .colourC {
-    color: #edf2f4;
+    color: lightcyan;
 }
 
 .colourD {
-    color: #8d99ae;
+    color: floralwhite;
 }
 
 .colourE {
-    color: #2b2d42;
+    color: black;
 }
 
 .hero {
-  background-image: url(https://picsum.photos/id/164/1920/1080);
-  background: linear-gradient(rgba(43, 45, 66, 0.45), rgba(43, 45, 66, 0.45)), rgba(0, 0, 0, 0.55) url("https://picsum.photos/id/164/1920/1080") no-repeat;
+  background-image: url(https://picsum.photos/id/985/1920/1080);
+  background: linear-gradient(rgba(4, 76, 98, 0.20), rgba(4, 76, 98, 0.45)), rgba(0, 0, 0, 0.55) url("https://picsum.photos/id/985/1920/1080") no-repeat;
   background-attachment: fixed;
   background-size: cover;
   color: white;
-  box-shadow: inset 0 3px 6px rgba(43, 45, 66, 0.2), 0 3px 6px rgba(216, 0, 50, 1);
+  box-shadow: inset 0 3px 6px rgba(4, 76, 98, 0.45), 0 3px 6px rgba(4, 76, 98, 0.45);
   }
   
   
@@ -38,7 +38,7 @@
   }
   
   .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li.is-active a {
-  border-bottom: 2px solid rgba(216, 0, 50, 0.75);
+  border-bottom: 2px solid rgba(4, 76, 98, 0.75);
   }
   
   .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li a {
@@ -47,7 +47,7 @@
   
   .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li a:hover {
   color:  black;
-  border-bottom: 2px solid rgba(216, 0, 50, 0.9);
+  border-bottom: 2px solid rgba(4, 76, 98, 0.45);
   }
   
   .main-content {
@@ -55,11 +55,17 @@
   }
   
   .main-content .section-dark {
-  background-color: #edf2f4;
+  background-color: #f0f3f5;
+  }
+  
+  .main-content .section-dark.resume button {
+  border: 2px solid #43485c;
+  background: white;
+  color: #43485c;
   }
   
   .main-content .section-dark.my-work .work-item {
-  box-shadow: 0 5px 20px rgba(216, 0, 50, 0.3);
+  box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
   }
   
   .main-content .section-dark.my-work .work-item:hover {
@@ -68,11 +74,16 @@
   }
   
   .main-content .section-light.about-me .right-image img {
-  box-shadow: 0 5px 20px rgba(216, 0, 50, 0.3);
+  box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
+  }
+  
+  .main-content .section-light.contact button {
+  background-color: #43485c;
+  color: white;
   }
   
   .main-content .section-color.services {
-  background-color: rgba(141, 153, 174, 1);
+  background-color: rgba(4, 76, 98, 1);
   color: white;
   }
   
@@ -86,9 +97,9 @@
   }
   
   #toTop {
-  background-color: rgba(216, 0, 50, 0.85);
+  background-color: rgba(4, 76, 98, 0.85);
   color: white;
-  box-shadow: 0 5px 20px rgba(216, 0, 50, 0.45);
+  box-shadow: 0 5px 20px rgba(4, 76, 98, 0.45);
   }
   
   #toTop a {
