@@ -31,6 +31,18 @@ html {
   height: 50px;
 }
 
+@media (max-width: 599px){
+  .hero .title{
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 599px){
+  .hero .subtitle{
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 599px) {
   .hero .hero-foot {
     display: none;
@@ -107,8 +119,8 @@ html {
 }
 
 @media (max-width: 599px) {
-  .main-content .section-light.about-us .about-links {
-    text-align: center;
+  .main-content .section-light.about-me .about-links {
+    margin: 2px;
   }
 }
 
@@ -117,7 +129,7 @@ html {
 }
 
 @media (max-width: 599px) {
-  .main-content .section-light.about-us .right-image img {
+  .main-content .section-light.about-me .right-image img {
     margin: auto;
   }
 }
@@ -175,4 +187,7 @@ html {
   margin-bottom: 1px;
   margin-top: 1px;
   padding-top: 1px;
+}
+.chkbox {
+  margin-top: 3em;
 }
