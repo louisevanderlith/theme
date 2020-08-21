@@ -10,11 +10,11 @@ import (
 
 func SetupRoutes(scrt, securityUrl, managerUrl string) http.Handler {
 	r := mux.NewRouter()
-
-	view := kong.ResourceMiddleware(http.DefaultClient, "theme.assets.view", scrt, securityUrl, managerUrl, assets.View)
+	ins := kong.NewResourceInspector(http.DefaultClient, securityUrl, managerUrl)
+	view := ins.Middleware("theme.assets.view", scrt, assets.View)
 	r.HandleFunc("/asset/{group:[a-z]+}", view).Methods(http.MethodGet)
 
-	//dwnld := kong.ResourceMiddleware("theme.assets.download", scrt, authUrl, assets.Download)
+	//dwnld := ins.Middleware("theme.assets.download", scrt, authUrl, assets.Download)
 	r.HandleFunc("/asset/{group:[a-z]+}/{file}", assets.Download).Methods(http.MethodGet)
 
 	lst, err := kong.Whitelist(http.DefaultClient, securityUrl, "theme.assets.view", scrt)
