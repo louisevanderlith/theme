@@ -77,41 +77,13 @@ html {
 }
 
 .main-content .section-dark {
-  padding: 60px 0px;
-}
-
-.main-content .section-dark.resume {
-  height: 400px;
-  padding-top: 100px;
+  padding: 60px 10px;
 }
 
 @media (max-width: 599px) {
   .main-content .section-dark.resume {
     padding-top: 75px;
   }
-}
-
-.main-content .section-dark.resume .title {
-  padding: 20px;
-}
-
-.main-content .section-dark.my-work {
-  padding: 120px;
-}
-
-@media (max-width: 599px) {
-  .main-content .section-dark.my-work {
-    padding: 75px 20px;
-  }
-}
-
-.main-content .section-dark.my-work .work-item {
-  margin-bottom: 1rem;
-  -webkit-transition: all .1s ease-in-out;
-  transition: all .1s ease-in-out;
-  border-radius: 5px;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .main-content .section-light {
@@ -152,7 +124,7 @@ html {
 }
 
 .main-content .section-color.services {
-  padding: 100px;
+  padding: 50px;
 }
 
 .main-content .section-color.services i {
@@ -190,4 +162,16 @@ html {
 }
 .chkbox {
   margin-top: 3em;
+}
+
+select:invalid {
+  color: gray;
+}
+
+.ddlt {
+  opacity: 40%;
+}
+
+.main-content .container {
+  margin: 2em;
 }
