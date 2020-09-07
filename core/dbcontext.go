@@ -2,11 +2,12 @@ package core
 
 import (
 	"github.com/louisevanderlith/husk"
-	"log"
+	"github.com/louisevanderlith/husk/collections"
+	"reflect"
 )
 
 type context struct {
-	Assets husk.Tabler
+	Assets husk.Table
 }
 
 var ctx context
@@ -24,14 +25,29 @@ func Shutdown() {
 }
 
 func seed() {
-	//if ctx.Assets.Exists(husk.Everything()) {
+	//if ctx.Assets.Exists(op.Everything()) {
 	//	ctx.Assets
 	//}
 
+	files, err := assetSeeds()
+
+	if err != nil {
+		panic(err)
+		return
+	}
+
+	err = ctx.Assets.Seed(files)
+
+	if err != nil {
+		panic(err)
+	}
+}
+
+func assetSeeds() (collections.Enumerable, error) {
 	groups := []string{"css", "fonts", "html", "ico", "js"}
 
 	//Find Files per Group
-	var many []husk.Dataer
+	var many []Asset
 
 	for _, group := range groups {
 		assets, err := ListAssets(group)
@@ -58,18 +74,5 @@ func seed() {
 		}
 	}
 
-	tot, err := ctx.Assets.CreateMulti(many...)
-
-	if err != nil {
-		panic(err)
-		return
-	}
-
-	log.Println("Rows Seeded", tot)
-
-	err = ctx.Assets.Save()
-
-	if err != nil {
-		panic(err)
-	}
+	return collections.ReadOnlyList(reflect.ValueOf(many)), nil
 }

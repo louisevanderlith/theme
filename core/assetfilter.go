@@ -1,13 +1,13 @@
 package core
 
 import (
-	"github.com/louisevanderlith/husk"
+	"github.com/louisevanderlith/husk/hsk"
 )
 
 type assetFilter func(obj Asset) bool
 
-func (f assetFilter) Filter(obj husk.Dataer) bool {
-	return f(obj.(Asset))
+func (f assetFilter) Filter(obj hsk.Record) bool {
+	return f(obj.Data().(Asset))
 }
 
 func byGroupAndName(group, name string) assetFilter {

@@ -3,12 +3,12 @@ package core
 import (
 	"bytes"
 	"errors"
+	"github.com/louisevanderlith/husk/hsk"
+	"github.com/louisevanderlith/husk/validation"
 	"io"
 	"io/ioutil"
 	"path/filepath"
 	"strings"
-
-	"github.com/louisevanderlith/husk"
 )
 
 type Asset struct {
@@ -26,7 +26,7 @@ func (a Asset) Valid() error {
 		return errors.New("name is invalid")
 	}
 
-	return husk.ValidateStruct(&a)
+	return validation.Struct(a)
 }
 
 func FindCachedAsset(group, name string) (io.Reader, error) {
@@ -72,7 +72,8 @@ func ListCachedAssets(group string) ([]string, error) {
 
 	var result []string
 	for enumer.MoveNext() {
-		obj := enumer.Current().Data().(Asset)
+		rec := enumer.Current().(hsk.Record)
+		obj := rec.Data().(Asset)
 		result = append(result, obj.Name)
 	}
 
