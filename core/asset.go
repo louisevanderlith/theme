@@ -44,11 +44,11 @@ func FindCachedAsset(group, name string) (io.Reader, error) {
 		return nil, err
 	}
 
-	if upload.Data() == nil {
+	if upload.GetValue() == nil {
 		return nil, errors.New("blob is empty")
 	}
 
-	asst, ok := upload.Data().(Asset)
+	asst, ok := upload.GetValue().(Asset)
 
 	if !ok {
 		return nil, errors.New("data is not 'Asset'")
@@ -73,7 +73,7 @@ func ListCachedAssets(group string) ([]string, error) {
 	var result []string
 	for enumer.MoveNext() {
 		rec := enumer.Current().(hsk.Record)
-		obj := rec.Data().(Asset)
+		obj := rec.GetValue().(Asset)
 		result = append(result, obj.Name)
 	}
 

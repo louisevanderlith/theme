@@ -7,7 +7,7 @@ import (
 type assetFilter func(obj Asset) bool
 
 func (f assetFilter) Filter(obj hsk.Record) bool {
-	return f(obj.Data().(Asset))
+	return f(obj.GetValue().(Asset))
 }
 
 func byGroupAndName(group, name string) assetFilter {
