@@ -160,6 +160,29 @@ html {
   margin-top: 1px;
   padding-top: 1px;
 }
+
+.midl {
+
+  position: absolute;
+  left: 3%;
+  bottom: 45%;
+  background-color: rgba(105, 105, 105, 0.6);
+  border-radius: 50%;
+  border: 0.8px solid grey;
+  padding: 10px;
+}
+
+.midr {
+
+  position: absolute;
+  right: 3%;
+  bottom: 45%;
+  background-color: rgba(105, 105, 105, 0.6);
+  border-radius: 50%;
+  border: 0.8px solid grey;
+  padding: 10px;
+}
+
 .chkbox {
   margin-top: 3em;
 }
