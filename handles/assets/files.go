@@ -19,6 +19,7 @@ func Download(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println("FindCacheAsset Error", err)
 		http.Error(w, "", http.StatusBadRequest)
+		return
 	}
 
 	err = mix.Write(w, mix.Octet(fileName, res))

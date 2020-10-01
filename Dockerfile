@@ -15,7 +15,7 @@ COPY core ./core
 
 RUN CGO_ENABLED="0" go build
 
-FROM alpine:latest AS styler
+FROM alpine:3.12.0 AS styler
 
 RUN apk --no-cache add nodejs nodejs-npm
 RUN npm install -g gulp gulp-cli

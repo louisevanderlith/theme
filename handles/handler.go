@@ -2,7 +2,7 @@ package handles
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/louisevanderlith/kong"
+	"github.com/louisevanderlith/kong/middle"
 	"github.com/louisevanderlith/theme/handles/assets"
 	"github.com/rs/cors"
 	"net/http"
@@ -10,14 +10,14 @@ import (
 
 func SetupRoutes(scrt, securityUrl, managerUrl string) http.Handler {
 	r := mux.NewRouter()
-	ins := kong.NewResourceInspector(http.DefaultClient, securityUrl, managerUrl)
+	ins := middle.NewResourceInspector(http.DefaultClient, securityUrl, managerUrl)
 	view := ins.Middleware("theme.assets.view", scrt, assets.View)
 	r.HandleFunc("/asset/{group:[a-z]+}", view).Methods(http.MethodGet)
 
 	//dwnld := ins.Middleware("theme.assets.download", scrt, authUrl, assets.Download)
 	r.HandleFunc("/asset/{group:[a-z]+}/{file}", assets.Download).Methods(http.MethodGet)
 
-	lst, err := kong.Whitelist(http.DefaultClient, securityUrl, "theme.assets.view", scrt)
+	lst, err := middle.Whitelist(http.DefaultClient, securityUrl, "theme.assets.view", scrt)
 
 	if err != nil {
 		panic(err)
