@@ -49,7 +49,7 @@ COPY --from=builder /box/theme .
 COPY --from=pyltjie /arrow/build/*.dart.js dist/js/
 COPY --from=styler /scissor/dist/css dist/css
 
-COPY assets/colour dist/css
+#COPY assets/colour dist/css
 COPY assets/html dist/html
 COPY assets/fonts dist/fonts
 COPY assets/ico dist/ico

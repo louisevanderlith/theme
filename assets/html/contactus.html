@@ -1,5 +1,5 @@
 <div class="column is-4 about-me">
-    <h1 class="title has-text-left section-title">
+    <h1 class="title has-text-left section-title colourTertiary">
         Contact Us
     </h1>
     <p class="has-text-left">
@@ -13,7 +13,7 @@
     <div class="social-media">
         {{range .Identity.GetClaim "kong.contacts"}}
         <a href="{{.Value}}" target="_blank">
-            &nbsp;&nbsp; <i class="fab {{.Icon}} fa-3x colourA" aria-hidden="true"></i>
+            &nbsp;&nbsp; <i class="fab {{.Icon}} fa-3x colourPrimary" aria-hidden="true"></i>
         </a>
         {{end}}
     </div>
