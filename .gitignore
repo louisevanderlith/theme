@@ -26,3 +26,4 @@ db/*.husk
 !db/*seed.json
 
 .idea
+cmd/cmd
