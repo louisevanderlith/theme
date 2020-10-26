@@ -2,10 +2,12 @@ package core
 
 import (
 	"github.com/louisevanderlith/husk"
+	"github.com/louisevanderlith/husk/collections"
+	"reflect"
 )
 
 type context struct {
-	Assets husk.Tabler
+	Assets husk.Table
 }
 
 var ctx context
@@ -14,7 +16,7 @@ func CreateContext() {
 	defer seed()
 
 	ctx = context{
-		Assets: husk.NewTable(new(Asset)),
+		Assets: husk.NewTable(Asset{}),
 	}
 }
 
@@ -23,10 +25,30 @@ func Shutdown() {
 }
 
 func seed() {
-	//err := ctx.Profiles.Seed("db/profiles.seed.json")
+	//if ctx.Assets.Exists(op.Everything()) {
+	//	ctx.Assets
+	//}
+
+	files, err := assetSeeds()
+
+	if err != nil {
+		panic(err)
+		return
+	}
+
+	err = ctx.Assets.Seed(files)
+
+	if err != nil {
+		panic(err)
+	}
+}
+
+func assetSeeds() (collections.Enumerable, error) {
 	groups := []string{"css", "fonts", "html", "ico", "js"}
 
 	//Find Files per Group
+	var many []Asset
+
 	for _, group := range groups {
 		assets, err := ListAssets(group)
 
@@ -48,13 +70,9 @@ func seed() {
 				Name:  asset,
 			}
 
-			rec := ctx.Assets.Create(obj)
-
-			if rec.Error != nil {
-				panic(rec.Error)
-			}
+			many = append(many, obj)
 		}
-
-		ctx.Assets.Save()
 	}
+
+	return collections.ReadOnlyList(reflect.ValueOf(many)), nil
 }

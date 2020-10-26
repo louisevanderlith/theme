@@ -3,30 +3,30 @@ package core
 import (
 	"bytes"
 	"errors"
+	"github.com/louisevanderlith/husk/hsk"
+	"github.com/louisevanderlith/husk/validation"
 	"io"
 	"io/ioutil"
 	"path/filepath"
 	"strings"
-
-	"github.com/louisevanderlith/husk"
 )
 
 type Asset struct {
 	Group string `hsk:"size(5)"`
 	Name  string `hsk:"size(128)"`
-	BLOB  []byte `json:"-"` //Blob shouldn't be returned in JSON result sets.
+	BLOB  []byte `hsk:"null" json:"-"` //Blob shouldn't be returned in JSON result sets.
 }
 
-func (a Asset) Valid() (bool, error) {
+func (a Asset) Valid() error {
 	if len(a.Group) < 2 {
-		return false, errors.New("group too short")
+		return errors.New("group too short")
 	}
 
 	if len(a.Name) < 3 || !strings.Contains(a.Name, ".") {
-		return false, errors.New("name is invalid")
+		return errors.New("name is invalid")
 	}
 
-	return husk.ValidateStruct(&a)
+	return validation.Struct(a)
 }
 
 func FindCachedAsset(group, name string) (io.Reader, error) {
@@ -44,11 +44,25 @@ func FindCachedAsset(group, name string) (io.Reader, error) {
 		return nil, err
 	}
 
-	return bytes.NewReader(upload.Data().(*Asset).BLOB), nil
+	if upload.GetValue() == nil {
+		return nil, errors.New("blob is empty")
+	}
+
+	asst, ok := upload.GetValue().(Asset)
+
+	if !ok {
+		return nil, errors.New("data is not 'Asset'")
+	}
+
+	return bytes.NewReader(asst.BLOB), nil
 }
 
 func ListCachedAssets(group string) ([]string, error) {
-	coll := ctx.Assets.Find(1, 100, byGroup(group))
+	coll, err := ctx.Assets.Find(1, 100, byGroup(group))
+
+	if err != nil {
+		return nil, err
+	}
 
 	if !coll.Any() {
 		return nil, errors.New("nothing found")
@@ -58,7 +72,8 @@ func ListCachedAssets(group string) ([]string, error) {
 
 	var result []string
 	for enumer.MoveNext() {
-		obj := enumer.Current().Data().(*Asset)
+		rec := enumer.Current().(hsk.Record)
+		obj := rec.GetValue().(Asset)
 		result = append(result, obj.Name)
 	}
 

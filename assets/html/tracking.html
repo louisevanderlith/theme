@@ -1,8 +1,12 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{.Identity.GTag}}"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{.Identity.GetCode "gtag"}}"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
-    gtag('config', {{ .Identity.GTag }});
+    gtag('config', {{ .Identity.GetCode "gtag" }});
 </script>

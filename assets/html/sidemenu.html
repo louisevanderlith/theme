@@ -1,31 +1,27 @@
-<aside class="section column is-2 is-narrow-mobile is-hidden-mobile" style="overflow: auto; height: 88vh;">
+<aside class="menu is-hidden-mobile" style="overflow: auto; height: 88vh;">
     {{range $lbl, $items := .SideMenu}}
-    <p class="menu-label is-hidden-touch">
-        {{$lbl}}
-    </p>
-    <ul class="menu-list">
-        {{range $_, $val := $items}}
-        <li id="{{$val.ID}}"><a class="{{if $val.IsActive}}is-active{{end}}" href="{{$val.Link}}">
-                <span class="icon"><i class="fa fa-angle-double-right"></i></span>
-                {{$val.Text}}
-            </a>
-            {{if $val.CanCreate}}
-            <a href="{{$val.Link}}/create">
-                <span class="icon has-text-success"><i class="fa fa-plus"></i></span>
-            </a>
+        <p class="menu-label is-hidden-touch">
+            {{$lbl}}
+        </p>
+        <ul class="menu-list">
+            {{range $_, $val := $items}}
+                <li id="{{$val.ID}}"><a class="{{if $val.IsActive}}is-active{{end}}" href="{{$val.Link}}">
+                        <span class="icon"><i class="fa fa-angle-double-right"></i></span>
+                        {{$val.Text}}
+                    </a>
+                    {{if $val.Children}}
+                        <ul class="menu-list">
+                            {{range $_, $cval := $val.Children}}
+                            <li id="{{$cval.ID}}"><a class="{{if $cval.IsActive}}is-active{{end}}"
+                                                     href="{{$cval.Link}}">
+                                    <span class="icon"><i class="fa fa-angle-right"></i></span>
+                                    {{$cval.Text}}
+                                </a>
+                                {{end}}
+                        </ul>
+                    {{end}}
+                </li>
             {{end}}
-            {{if $val.Children}}
-            <ul class="menu-list">
-                {{range $_, $cval := $val.Children}}
-                <li id="{{$cval.ID}}"><a class="{{if $cval.IsActive}}is-active{{end}}" href="{{$cval.Link}}">
-                    <span class="icon"><i class="fa fa-angle-right"></i></span>
-                    {{$cval.Text}}
-                </a>
-                {{end}}
-            </ul>
-            {{end}}
-        </li>
-        {{end}}
-    </ul>
+        </ul>
     {{end}}
-</aside> 
+</aside>
