@@ -1,9 +1,5 @@
 <div class="column is-4 about-me">
-<<<<<<< HEAD
     <h1 class="title has-text-left section-title colourTertiary">
-=======
-    <h1 class="title has-text-left section-title">
->>>>>>> d41586cda71219a3416703b155a50e74e1645468
         Contact Us
     </h1>
     <p class="has-text-left">
@@ -15,23 +11,10 @@
     </p>
     <br>
     <div class="social-media">
-<<<<<<< HEAD
-        {{range .Identity.GetClaim "kong.contacts"}}
-<<<<<<< HEAD
-        <a href="{{.Value}}" target="_blank">
-            &nbsp;&nbsp; <i class="fab {{.Icon}} fa-3x colourPrimary" aria-hidden="true"></i>
-        </a>
-=======
-            <a href="{{.Value}}" target="_blank">
-                <i class="fab {{.Icon}} fa-3x colourA" aria-hidden="true"></i>
-            </a>
->>>>>>> d41586cda71219a3416703b155a50e74e1645468
-=======
         {{range .Contacts}}
             <a href="{{.Value}}" target="_blank">
                 &nbsp;&nbsp; <i class="fab {{.Icon}} fa-3x colourPrimary" aria-hidden="true"></i>
             </a>
->>>>>>> release/v1.0.2
         {{end}}
     </div>
 </div>
@@ -41,16 +24,8 @@
         <div class="field">
             <label for="txtContactName" class="label colorA">Name</label>
             <div class="control">
-<<<<<<< HEAD
                 <input id="txtContactName" class="input is-medium" placeholder="Timmy" required minlength="3"
-<<<<<<< HEAD
-                    maxlength="64" type="text">
-=======
-                <input id="txtContactName" class="input is-medium" placeholder="Timmy" required minlength="3" maxlength="64" type="text">
->>>>>>> d41586cda71219a3416703b155a50e74e1645468
-=======
                        maxlength="64" type="text">
->>>>>>> release/v1.0.2
                 <p class="help is-danger"></p>
             </div>
         </div>
@@ -58,61 +33,29 @@
             <label for="txtContactContactNo" class="label colorA">Contact Number</label>
             <div class="control">
                 <input id="txtContactContactNo" class="input is-medium" type="tel" minlength="10" maxlength="10"
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    placeholder="0820001111" required pattern="[0-9]{10}">
-=======
                        placeholder="0820001111" required pattern="[0-9]{10}">
->>>>>>> d41586cda71219a3416703b155a50e74e1645468
-=======
-                       placeholder="0820001111" required pattern="[0-9]{10}">
->>>>>>> release/v1.0.2
                 <p class="help is-danger"></p>
             </div>
         </div>
         <div class="field">
             <label for="txtContactEmail" class="label colorPrimary">Email</label>
             <div class="control">
-<<<<<<< HEAD
                 <input id="txtContactEmail" minlength="3" placeholder="timmy@email.com" class="input is-medium" required
-<<<<<<< HEAD
-                    type="email">
-=======
-                <input id="txtContactEmail" minlength="3" placeholder="timmy@email.com" class="input is-medium" required type="email">
->>>>>>> d41586cda71219a3416703b155a50e74e1645468
-=======
                        type="email">
->>>>>>> release/v1.0.2
                 <p class="help is-danger"></p>
             </div>
         </div>
         <div class="field">
             <label for="txtContactBody" class="label colorPrimary">Message</label>
             <div class="control">
-<<<<<<< HEAD
                 <textarea id="txtContactBody" maxlength="512" placeholder="Your thoughts and ideas."
-<<<<<<< HEAD
-                    class="textarea is-medium"></textarea>
-=======
-                <textarea id="txtContactBody" maxlength="512" placeholder="Your thoughts and ideas." class="textarea is-medium"></textarea>
->>>>>>> d41586cda71219a3416703b155a50e74e1645468
-=======
                           class="textarea is-medium"></textarea>
->>>>>>> release/v1.0.2
                 <p class="help is-danger"></p>
             </div>
         </div>
         <div class="control">
             <button type="button" class="button is-link is-fullwidth has-text-weight-medium is-medium"
-<<<<<<< HEAD
-<<<<<<< HEAD
-                id="btnContactSubmit">Send Message
-=======
                     id="btnContactSubmit">Send Message
->>>>>>> d41586cda71219a3416703b155a50e74e1645468
-=======
-                    id="btnContactSubmit">Send Message
->>>>>>> release/v1.0.2
             </button>
         </div>
     </form>

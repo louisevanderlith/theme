@@ -15,7 +15,7 @@
     <link rel="icon" href="{{ index .Endpoints "theme" }}/asset/ico/favicon.ico" type="image/x-icon">
 
     <!-- For Facebook -->
-    <meta property="og:title" content="{{.Name}}">
+    <meta property="og:title" content="{{.Title}}">
     <meta property="og:type" content="website">
     <meta property="og:image"
           content="{{ index .Endpoints "artifact" }}/download/{{.Data.Content.LogoKey}}">
@@ -24,11 +24,7 @@
 
     <!-- For Twitter -->
     <meta name="twitter:card" content="summary"/>
-<<<<<<< HEAD
-    <meta name="twitter:title" content="{{.Name}}"/>
-=======
-    <meta name="twitter:title" content="Custom Software and web design - avosa.co.za"/>
->>>>>>> d41586cda71219a3416703b155a50e74e1645468
+    <meta name="twitter:title" content="{{.Title}}"/>
     <meta name="twitter:description" content="{{.Identity.GetClaim "kong.description"}}"/>
     <meta name="twitter:image"
           content="{{ index .Endpoints "artifact" }}/download/{{.Data.Content.LogoKey}}"/>
