@@ -1,18 +1,71 @@
-<!-- Begin Hero Menu -->
 <div class="hero-foot colourAccent">
     <div class="hero-foot--wrapper">
-        <div class="columns">
+        <div class="container">
             <div class="column is-12 hero-menu-desktop has-text-centered">
-                
-                <ul>
-                    {{range .Menu.Items}}
-                    <li class="{{if .Active}}is-active{{end}}">
-                        <a href="{{.Link}}">{{.Text}}</a>
-                    </li>
-                    {{end}}    
-                </ul>
+                <!-- Begin Hero Menu -->
+                <nav class="navbar is-white">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="../">
+                            <h1 class="title is-3">Avosa</h1>
+                        </a>
+                        <div class="navbar-burger burger" data-target="topNav">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div id="topNav" class="navbar-menu">
+                        <div class="navbar-start">
+                            <ul>
+                                {{range .Menu.Items}}
+                                <li class="{{if .Active}}is-active{{end}}">
+                                    <a href="{{.Link}}">{{.Text}}</a>
+                                </li>
+                                {{end}}
+                            </ul>
+                        </div>
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <div class="field is-grouped">
+                                    <p class="control">
+                                        <a class="button is-small">
+                                            <span class="icon">
+                                                <i class="fa fa-user-plus"></i>
+                                            </span>
+                                            <span>
+                                                Register
+                                            </span>
+                                        </a>
+                                    </p>
+                                    <p class="control">
+                                        <a class="button is-small is-info is-outlined">
+                                            <span class="icon">
+                                                <i class="fa fa-user"></i>
+                                            </span>
+                                            <span>Login</span>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-item" href="../">
+                                    <img class="pfp"
+                                        src="http://www.radfaces.com/images/avatars/daria-morgendorffer.jpg">
+                                </a>
+                                <div class="navbar-dropdown">
+                                    <a class="navbar-item">Dashboard</a>
+                                    <a class="navbar-item">Profile</a>
+                                    <a class="navbar-item">Settings</a>
+                                    <hr class="navbar-divider">
+                                    <div class="navbar-item">Logout</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </nav>
             </div>
         </div>
+        <!-- End Hero Menu -->
     </div>
 </div>
-<!-- End Hero Menu -->
