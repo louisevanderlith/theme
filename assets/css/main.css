@@ -85,8 +85,8 @@ html {
 }
 
 .main-content .section-dark.resume {
-  height: 400px;
-  padding-top: 100px;
+    height: 400px;
+    padding-top: 100px;
 }
 
 @media (max-width: 599px) {
@@ -171,7 +171,7 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
 
 .midl {
@@ -210,13 +210,7 @@ select:invalid {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-<<<<<<< Updated upstream
 }
-
-.pfp {
-  border-radius: 50%;
-}
-
 
 
 
