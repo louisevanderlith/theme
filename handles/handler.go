@@ -2,29 +2,29 @@ package handles
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/louisevanderlith/kong/middle"
+	"github.com/louisevanderlith/droxolite/open"
 	"github.com/louisevanderlith/theme/handles/assets"
 	"github.com/rs/cors"
 	"net/http"
 )
 
-func SetupRoutes(scrt, securityUrl, managerUrl string) http.Handler {
+func SetupRoutes(issuer, audience string) http.Handler {
 	r := mux.NewRouter()
-	ins := middle.NewResourceInspector(http.DefaultClient, securityUrl, managerUrl)
-	view := ins.Middleware("theme.assets.view", scrt, assets.View)
-	r.HandleFunc("/asset/{group:[a-z]+}", view).Methods(http.MethodGet)
+	mw := open.BearerMiddleware(audience, issuer)
+
+	r.Handle("/asset/{group:[a-z]+}", mw.Handler(http.HandlerFunc(assets.View))).Methods(http.MethodGet)
 
 	//dwnld := ins.Middleware("theme.assets.download", scrt, authUrl, assets.Download)
 	r.HandleFunc("/asset/{group:[a-z]+}/{file}", assets.Download).Methods(http.MethodGet)
 
-	lst, err := middle.Whitelist(http.DefaultClient, securityUrl, "theme.assets.view", scrt)
+	//lst, err := middle.Whitelist(http.DefaultClient, securityUrl, "theme.assets.view", scrt)
 
-	if err != nil {
-		panic(err)
-	}
+	//if err != nil {
+	//	panic(err)
+	//}
 
 	corsOpts := cors.New(cors.Options{
-		AllowedOrigins: lst, //you service is available and allowed for this base url
+		AllowedOrigins: []string{"*"}, //you service is available and allowed for this base url
 		AllowedMethods: []string{
 			http.MethodGet,
 			http.MethodOptions,

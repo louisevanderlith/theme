@@ -10,8 +10,13 @@ import (
 )
 
 func main() {
-	securty := flag.String("security", "http://localhost:8086", "Security Provider's URL")
-	srcSecrt := flag.String("scopekey", "secret", "Secret used to validate against scopes")
+<<<<<<< Updated upstream
+	issuer := flag.String("issuer", "http://127.0.0.1:8080", "OIDC Provider's URL")
+	audience := flag.String("audience", "folio", "Token target 'aud'")
+=======
+	issuer := flag.String("issuer", "http://127.0.0.1:8080/auth/realms/mango", "OIDC Provider's URL")
+	audience := flag.String("audience", "theme", "Token target 'aud'")
+>>>>>>> Stashed changes
 	flag.Parse()
 
 	core.CreateContext()
@@ -21,7 +26,7 @@ func main() {
 		ReadTimeout:  time.Second * 15,
 		WriteTimeout: time.Second * 15,
 		Addr:         ":8093",
-		Handler:      handles.SetupRoutes(*srcSecrt, *securty, ""),
+		Handler:      handles.SetupRoutes(*issuer, *audience),
 	}
 
 	err := srvr.ListenAndServe()
