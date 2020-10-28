@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"net/http"
 	"os"
 )
@@ -38,6 +39,11 @@ func FindTemplates(web *http.Client, themeUrl string) ([]string, error) {
 
 	defer resp.Body.Close()
 
+	if resp.StatusCode != http.StatusOK {
+		bdy, _ := ioutil.ReadAll(resp.Body)
+		return nil, fmt.Errorf("%v: %s", resp.StatusCode, string(bdy))
+	}
+
 	var result []string
 	dec := json.NewDecoder(resp.Body)
 	err = dec.Decode(&result)
@@ -59,6 +65,11 @@ func DownloadTemplate(web *http.Client, template, themeURL string) error {
 	}
 
 	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		bdy, _ := ioutil.ReadAll(resp.Body)
+		return fmt.Errorf("%v: %s", resp.StatusCode, string(bdy))
+	}
 
 	out, err := os.Create("/views/_shared/" + template)
 
