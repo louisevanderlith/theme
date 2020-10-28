@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	issuer := flag.String("issuer", "http://127.0.0.1:8080", "OIDC Provider's URL")
+	issuer := flag.String("issuer", "http://127.0.0.1:8080/auth/realms/mango", "OIDC Provider's URL")
 	audience := flag.String("audience", "theme", "Token target 'aud'")
 	flag.Parse()
 

@@ -82,7 +82,12 @@ html {
 }
 
 .main-content .section-dark {
-    padding: 60px 10px;
+    padding: 60px 0px;
+}
+
+.main-content .section-dark.resume {
+    height: 400px;
+    padding-top: 100px;
 }
 
 @media (max-width: 599px) {
@@ -134,7 +139,7 @@ html {
 
 .main-content .section-color.services i {
     font-size: 3rem;
-    padding: 20px;
+    padding: 100px;
 }
 
 .main-content .section-title {
@@ -164,6 +169,10 @@ html {
     margin-bottom: 1px;
     margin-top: 1px;
     padding-top: 1px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
 }
 
 .midl {
@@ -196,10 +205,6 @@ select:invalid {
     opacity: 40%;
 }
 
-.main-content .container {
-    margin: 2em;
-}
-
 .cc {
     display: block;
     width: 50%;
@@ -207,6 +212,7 @@ select:invalid {
     left: 50%;
     transform: translateX(-50%);
 }
+<<<<<<< HEAD
 =======
   display: flex;
   flex-direction: column;
@@ -416,3 +422,8 @@ html {
 }
 
 >>>>>>> d41586cda71219a3416703b155a50e74e1645468
+=======
+
+
+
+>>>>>>> release/v1.0.2

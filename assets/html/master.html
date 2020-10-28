@@ -11,14 +11,14 @@
     <meta name="Language" content="en"/>
     <meta name="Country" content="ZA"/>
     <title>{{.Title}}</title>
-    <link rel="shortcut icon" href="{{ .Identity.GetResourceURL "theme" }}/asset/ico/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="{{ .Identity.GetResourceURL "theme" }}/asset/ico/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ index .Endpoints "theme" }}/asset/ico/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ index .Endpoints "theme" }}/asset/ico/favicon.ico" type="image/x-icon">
 
     <!-- For Facebook -->
     <meta property="og:title" content="{{.Name}}">
     <meta property="og:type" content="website">
     <meta property="og:image"
-          content="{{ .Identity.GetResourceURL "artifact" }}/download/{{.Identity.GetClaim "kong.logo"}}">
+          content="{{ index .Endpoints "artifact" }}/download/{{.Data.Content.LogoKey}}">
     <meta property="og:url" content="/">
     <meta property="og:description" content="{{.Identity.GetClaim "kong.description"}}">
 
@@ -31,7 +31,7 @@
 >>>>>>> d41586cda71219a3416703b155a50e74e1645468
     <meta name="twitter:description" content="{{.Identity.GetClaim "kong.description"}}"/>
     <meta name="twitter:image"
-          content="{{ .Identity.GetResourceURL "artifact" }}/download/{{.Identity.GetClaim "kong.logo"}}"/>
+          content="{{ index .Endpoints "artifact" }}/download/{{.Data.Content.LogoKey}}"/>
     {{template "styles.html" .}}
     <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>

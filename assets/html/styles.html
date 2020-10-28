@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 <link rel="stylesheet" href="{{ .Identity.GetResourceURL "theme" }}/asset/css/bundle.css"/>
 <<<<<<< HEAD
 <link rel="stylesheet" href="{{ .Identity.GetResourceURL "cms" }}/colour/{{.Identity.GetProfile}}"/>
 =======
 <link rel="stylesheet" href="{{ .Identity.GetResourceURL "theme" }}/asset/css/{{.Identity.GetProfile}}.css"/>
 >>>>>>> d41586cda71219a3416703b155a50e74e1645468
+=======
+<link rel="stylesheet" href="{{ index .Endpoints "theme" }}/asset/css/bundle.css"/>
+<link rel="stylesheet" href="{{ index .Endpoints "folio" }}/colour/{{.ClientID}}"/>
+>>>>>>> release/v1.0.2

@@ -11,6 +11,7 @@ import (
 func SetupRoutes(issuer, audience string) http.Handler {
 	r := mux.NewRouter()
 	mw := open.BearerMiddleware(audience, issuer)
+
 	r.Handle("/asset/{group:[a-z]+}", mw.Handler(http.HandlerFunc(assets.View))).Methods(http.MethodGet)
 
 	//dwnld := ins.Middleware("theme.assets.download", scrt, authUrl, assets.Download)
