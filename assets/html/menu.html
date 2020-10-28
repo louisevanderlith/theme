@@ -14,55 +14,14 @@
                             <span></span>
                         </div>
                     </div>
-                    <div id="topNav" class="navbar-menu">
+                    <div id="topNav" class="navbar-menu is-right">
                         <div class="navbar-start">
-                            <ul>
-                                {{range .Menu.Items}}
-                                <li class="{{if .Active}}is-active{{end}}">
-                                    <a href="{{.Link}}">{{.Text}}</a>
-                                </li>
-                                {{end}}
-                            </ul>
-                        </div>
-                        <div class="navbar-end">
-                            <div class="navbar-item">
-                                <div class="field is-grouped">
-                                    <p class="control">
-                                        <a class="button is-small">
-                                            <span class="icon">
-                                                <i class="fa fa-user-plus"></i>
-                                            </span>
-                                            <span>
-                                                Register
-                                            </span>
-                                        </a>
-                                    </p>
-                                    <p class="control">
-                                        <a class="button is-small is-info is-outlined">
-                                            <span class="icon">
-                                                <i class="fa fa-user"></i>
-                                            </span>
-                                            <span>Login</span>
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="navbar-item has-dropdown is-hoverable">
-                                <a class="navbar-item" href="../">
-                                    <img class="pfp"
-                                        src="http://www.radfaces.com/images/avatars/daria-morgendorffer.jpg">
-                                </a>
-                                <div class="navbar-dropdown">
-                                    <a class="navbar-item">Dashboard</a>
-                                    <a class="navbar-item">Profile</a>
-                                    <a class="navbar-item">Settings</a>
-                                    <hr class="navbar-divider">
-                                    <div class="navbar-item">Logout</div>
-                                </div>
-                            </div>
+                            {{range .Menu.Items}}
+                            {{if .Active}}is-active{{end}}
+                            <a class="navbar-item" href="{{.Link}}">{{.Text}}</a>
+                            {{end}}
                         </div>
                     </div>
-
                 </nav>
             </div>
         </div>

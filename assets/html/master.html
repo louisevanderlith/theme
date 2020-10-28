@@ -18,7 +18,7 @@
     <meta property="og:title" content="{{.Name}}">
     <meta property="og:type" content="website">
     <meta property="og:image"
-          content="{{ index .Endpoints "artifact" }}/download/{{.Data.Content.Logo}}">
+          content="{{ index .Endpoints "artifact" }}/download/{{.Data.Content.LogoKey}}">
     <meta property="og:url" content="/">
     <meta property="og:description" content="{{.Identity.GetClaim "kong.description"}}">
 
@@ -27,7 +27,7 @@
     <meta name="twitter:title" content="{{.Name}}"/>
     <meta name="twitter:description" content="{{.Identity.GetClaim "kong.description"}}"/>
     <meta name="twitter:image"
-          content="{{ .Identity.GetResourceURL "artifact" }}/download/{{.Identity.GetClaim "kong.logo"}}"/>
+          content="{{ index .Endpoints "artifact" }}/download/{{.Data.Content.LogoKey}}"/>
     {{template "styles.html" .}}
     <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
