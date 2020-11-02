@@ -15,17 +15,17 @@
     <link rel="icon" href="{{ index .Endpoints "theme" }}/asset/ico/favicon.ico" type="image/x-icon">
 
     <!-- For Facebook -->
-    <meta property="og:title" content="{{.Name}}">
+    <meta property="og:title" content="{{.Title}}">
     <meta property="og:type" content="website">
     <meta property="og:image"
           content="{{ index .Endpoints "artifact" }}/download/{{.Folio.LogoKey}}">
     <meta property="og:url" content="/">
-    <meta property="og:description" content="{{.Identity.GetClaim "kong.description"}}">
+    <meta property="og:description" content="">
 
     <!-- For Twitter -->
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="{{.Name}}"/>
-    <meta name="twitter:description" content="{{.Identity.GetClaim "kong.description"}}"/>
+    <meta name="twitter:title" content="{{.Title}}"/>
+    <meta name="twitter:description" content=""/>
     <meta name="twitter:image"
           content="{{ index .Endpoints "artifact" }}/download/{{.Folio.LogoKey}}"/>
     {{template "styles.html" .}}
