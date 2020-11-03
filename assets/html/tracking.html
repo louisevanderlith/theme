@@ -1,5 +1,5 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{.Identity.GetCode "gtag"}}"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{.Folio.GTag}}"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -8,5 +8,5 @@
     }
 
     gtag('js', new Date());
-    gtag('config', {{ .Identity.GetCode "gtag" }});
+    gtag('config', {{ .Folio.GTag }});
 </script>
