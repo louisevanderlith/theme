@@ -1,71 +1,72 @@
 {{ range $key, $val := .Comments}}
-<article class="media">
-    <figure class="media-left">
-        <p class="image is-64x64">
-            <img src="https://www.gravatar.com/avatar/{{$val.UserImage}}.jpg">
-        </p>
-    </figure>
-    <div class="media-content">
-        <div class="content">
-            <p>
-                <strong>Barbara Middleton</strong>
-                <br>
-                {{$val.Text}}
-                <br>
-                <small><a>Like</a> · <a data-itemKey="$key" data-itemType="Child">Reply</a> · 3 hrs</small>
+    <article class="media">
+        <figure class="media-left">
+            <p class="image is-64x64">
+                <img src="https://www.gravatar.com/avatar/{{$val.UserImage}}.jpg">
             </p>
-        </div>
-        {{ range $ckey, $cval := $val.Children}}
-        <article class="media">
-            <figure class="media-left">
-                <p class="image is-48x48">
-                    <img src="https://www.gravatar.com/avatar/{{$cval.UserImage}}.jpg">
+        </figure>
+        <div class="media-content">
+            <div class="content">
+                <p>
+                    <strong>Barbara Middleton</strong>
+                    <br>
+                    {{$val.Text}}
+                    <br>
+                    <small><a>Like</a> · <a data-itemKey="$key" data-itemType="Child">Reply</a> · 3 hrs</small>
                 </p>
-            </figure>
-            <div class="media-content">
-                <div class="content">
-                    <p>
-                        <strong>Sean Brown</strong>
-                        <br>
-                        {{$cval.Text}}
-                        <br>
-                        <small><a>Like</a> · <a data-itemKey="$key" data-itemType="Child">Reply</a> · 2 hrs</small>
-                    </p>
-                </div>
             </div>
-        </article>
-        {{end}}
-    </div>
-</article>
+            {{ range $ckey, $cval := $val.Children}}
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="image is-48x48">
+                            <img src="https://www.gravatar.com/avatar/{{$cval.UserImage}}.jpg">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>Sean Brown</strong>
+                                <br>
+                                {{$cval.Text}}
+                                <br>
+                                <small><a>Like</a> · <a data-itemKey="$key" data-itemType="Child">Reply</a> · 2
+                                    hrs</small>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            {{end}}
+        </div>
+    </article>
 {{end}}
 {{if .LoggedIn}}
-<article class="media">
-    <figure class="media-left">
-        <p class="image is-64x64">
-            <img src="https://www.gravatar.com/avatar/{{.Gravatar}}.jpg">
-        </p>
-    </figure>
-    <div class="media-content">
-        <form id="frmComment" role="form">
-            <input type="hidden" id="hdnUserImg" value="{{.Gravatar}}" />
-            <div class="field">
-                <div class="control">
-                    <input type="text" id="txtText" class="input" required placeholder="Add a comment..."></input>
-                    <p class="help is-danger"></p>
+    <article class="media">
+        <figure class="media-left">
+            <p class="image is-64x64">
+                <img src="https://www.gravatar.com/avatar/{{.Gravatar}}.jpg">
+            </p>
+        </figure>
+        <div class="media-content">
+            <form id="frmComment" role="form">
+                <input type="hidden" id="hdnUserImg" value="{{.Gravatar}}"/>
+                <div class="field">
+                    <div class="control">
+                        <input type="text" id="txtText" class="input" required placeholder="Add a comment..."></input>
+                        <p class="help is-danger"></p>
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <button type="button" id="btnComment" class="button is-info">Comment</button>
+                <div class="field">
+                    <div class="control">
+                        <button type="button" id="btnComment" class="button is-info">Comment</button>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
-</article>
+            </form>
+        </div>
+    </article>
 {{else}}
-<div class="container">
-    <div class="notification">
-        <p>Please <button class="button is-small is-info needs-login">Login</button> to Comment.</p>
+    <div class="container">
+        <div class="notification">
+            <p>Please <a href="/login" class="button is-small is-info needs-login">Login</a> to Comment.</p>
+        </div>
     </div>
-</div>
 {{end}}
