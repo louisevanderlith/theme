@@ -69,7 +69,7 @@ html {
 }
 
 .main-content .section-dark.resume {
-    height: 400px;
+    height: auto;
     padding-top: 100px;
 }
 
@@ -177,6 +177,7 @@ html {
 
 .main-content .section-color.services {
     padding: 100px;
+    height: auto;
 }
 
 .main-content .section-color.services i {
@@ -205,3 +206,8 @@ html {
     border-radius: 50%;
     font-size: 2rem;
 }
+
+hr.content-divider {
+    max-width: 75px;
+    height: 5px;
+  }
