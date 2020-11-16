@@ -1,27 +1,20 @@
 <!-- Begin Hero Menu -->
-<div class="hero-foot colourAccent">
-    <div class="hero-foot--wrapper">
-        
-            <div class="column is-12 hero-menu-desktop has-text-centered">
-                <!-- Begin Hero Menu -->
-                <nav class="navbar is-white">
-                    <div class="navbar-brand">
-                        <a class="navbar-item" href="/">
-                            <img src="{{index .Endpoints "artifact"}}/download/{{.Folio.LogoKey}}"
-                                 alt="{{.Folio.Client}}" width="112" height="28">
-                        </a>
-                    </div>
-                    <div id="topNav" class="navbar-menu is-right">
-                        <div class="navbar-start">
-                            {{range .Menu.Items}}
-                                {{if .Active}}is-active{{end}}
-                                <a class="navbar-item" href="{{.Link}}">{{.Text}}</a>
-                            {{end}}
-                        </div>
-                    </div>
-                </nav>
+
+<div class="py-3 px-3">
+    <!-- Begin Hero Menu -->
+    <nav class="navbar is-white">
+        <a class="image">
+            <img src="{{index .Endpoints "artifact"}}/download/{{.Folio.LogoKey}}" alt="{{.Folio.Client}}"
+                  style="height:60px; width:150px;">
+        </a>
+        <div id="topNav" class="navbar-menu is-right">
+            <div class="navbar-start">
+                {{range .Menu.Items}}
+                {{if .Active}}is-active{{end}}
+                <a class="navbar-item" href="{{.Link}}">{{.Text}}</a>
+                {{end}}
             </div>
-        
-        <!-- End Hero Menu -->
-    </div>
+        </div>
+    </nav>
 </div>
+<!-- End Hero Menu -->
