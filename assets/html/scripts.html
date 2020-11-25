@@ -10,7 +10,7 @@
     if (sessionStorage) {
         const endpoints = {{ .Endpoints }};
         sessionStorage.setItem('client.endpoints', JSON.stringify(endpoints));
-        sessionStorage.setItem("client.token", '{{.Token}}');
+        sessionStorage.setItem("client.token", '{{.Token.AccessToken}}');
     }
 </script>
 
