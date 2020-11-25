@@ -69,7 +69,7 @@ html {
 }
 
 .main-content .section-dark.resume {
-    height: 400px;
+    height: auto;
     padding-top: 100px;
 }
 
@@ -83,22 +83,7 @@ html {
     padding: 20px;
 }
 
-.main-content .section-dark.resume button {
-    height: 50px;
-    width: 250px;
-    font-size: 1rem;
-    text-transform: uppercase;
-}
 
-.main-content .section-dark.my-work {
-    padding: 120px;
-}
-
-@media (max-width: 599px) {
-    .main-content .section-dark.my-work {
-        padding: 75px 20px;
-    }
-}
 
 .main-content .section-dark.my-work .work-item {
     margin-bottom: 1rem;
@@ -158,10 +143,6 @@ html {
     padding: 10px;
 }
 
-.main-content .section-light.contact {
-    padding: 200px;
-}
-
 .main-content .section-light.contact button {
     width: 100%;
     height: 50px;
@@ -173,15 +154,6 @@ html {
     .main-content .section-light.contact {
         padding: 60px 20px;
     }
-}
-
-.main-content .section-color.services {
-    padding: 100px;
-}
-
-.main-content .section-color.services i {
-    font-size: 3rem;
-    padding: 20px;
 }
 
 .main-content .section-title {
@@ -205,3 +177,8 @@ html {
     border-radius: 50%;
     font-size: 2rem;
 }
+
+hr.content-divider {
+    max-width: 75px;
+    height: 5px;
+  }
