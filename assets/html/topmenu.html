@@ -1,15 +1,51 @@
-<div class="navbar-item">
-    <div class="field is-grouped">
-        {{if .ShowSearch}}
-        <div class="control is-expanded has-icons-left">
-            <input class="input has-text-centered" type="text" placeholder="Search">
-            <span class="icon is-small is-left">
-                <i class="fas fa-search"></i>
-            </span>
-        </div>
-        {{end}}
-        <div class="control">
-            <button class="button is-primary is-normal" type="button" id="btnSubmit">Submit</button>
+<nav class="navbar is-dark">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <img src="{{index .Endpoints "artifact"}}/download/{{.Folio.LogoKey}}" alt="{{.Folio.Client}} logo"
+                 width="112" height="28"/>
+        </a>
+
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </div>
-</div>
+
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div class="navbar-start">
+            {{range .Menu.Items}}
+                {{if .Children}}
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">{{.Text}}</a>
+                        <div class="navbar-dropdown">
+                            {{range .Children}}
+                                <a class="navbar-item" href="{{.Link}}">
+                                    {{.Text}}
+                                </a>
+                            {{end}}
+                        </div>
+                    </div>
+                {{else}}
+                    <a class="navbar-item" href="{{.Link}}">
+                        {{.Text}}
+                    </a>
+                {{end}}
+            {{end}}
+        </div>
+
+        <div class="navbar-end">
+            <a class="navbar-item button button-info">Login</a>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Account</a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item">Dashboard</a>
+                    <a class="navbar-item">Profile</a>
+                    <a class="navbar-item">Settings</a>
+                    <hr class="navbar-divider">
+                    <div class="navbar-item">Logout</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
