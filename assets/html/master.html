@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="author" content="avosa PTY LTD">
-    <meta name="Language" content="en"/>
+    <meta name="Language" content="{{.Folio.Language}}"/>
     <meta name="Country" content="ZA"/>
     <title>{{.Title}}</title>
     <link rel="shortcut icon" href="{{ index .Endpoints "theme" }}/asset/ico/favicon.ico" type="image/x-icon">
@@ -20,12 +20,12 @@
     <meta property="og:image"
           content="{{ index .Endpoints "artifact" }}/download/{{.Folio.LogoKey}}">
     <meta property="og:url" content="/">
-    <meta property="og:description" content="">
+    <meta property="og:description" content="{{.Folio.Description}}">
 
     <!-- For Twitter -->
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:title" content="{{.Title}}"/>
-    <meta name="twitter:description" content=""/>
+    <meta name="twitter:description" content="{{.Folio.Description}}"/>
     <meta name="twitter:image"
           content="{{ index .Endpoints "artifact" }}/download/{{.Folio.LogoKey}}"/>
     {{template "styles.html" .}}
