@@ -35,17 +35,20 @@
         </div>
 
         <div class="navbar-end">
-            <a class="navbar-item button button-info">Login</a>
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">Account</a>
-                <div class="navbar-dropdown">
-                    <a class="navbar-item">Dashboard</a>
-                    <a class="navbar-item">Profile</a>
-                    <a class="navbar-item">Settings</a>
-                    <hr class="navbar-divider">
-                    <div class="navbar-item">Logout</div>
+            {{if .User}}
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">{{index .User "name"}}</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">Dashboard</a>
+                        <a class="navbar-item">Profile</a>
+                        <a class="navbar-item">Settings</a>
+                        <hr class="navbar-divider">
+                        <a href="/logout" class="navbar-item">Logout</a>
+                    </div>
                 </div>
-            </div>
+            {{else}}
+                <a href="/login" class="navbar-item">Login</a>
+            {{end}}
         </div>
     </div>
 </nav>
