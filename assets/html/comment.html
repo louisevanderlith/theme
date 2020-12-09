@@ -1,54 +1,13 @@
-{{ range $key, $val := .Comments}}
+{{if .User}}
     <article class="media">
         <figure class="media-left">
             <p class="image is-64x64">
-                <img src="https://www.gravatar.com/avatar/{{$val.UserImage}}.jpg">
-            </p>
-        </figure>
-        <div class="media-content">
-            <div class="content">
-                <p>
-                    <strong>Barbara Middleton</strong>
-                    <br>
-                    {{$val.Text}}
-                    <br>
-                    <small><a>Like</a> · <a data-itemKey="$key" data-itemType="Child">Reply</a> · 3 hrs</small>
-                </p>
-            </div>
-            {{ range $ckey, $cval := $val.Children}}
-                <article class="media">
-                    <figure class="media-left">
-                        <p class="image is-48x48">
-                            <img src="https://www.gravatar.com/avatar/{{$cval.UserImage}}.jpg">
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-                            <p>
-                                <strong>Sean Brown</strong>
-                                <br>
-                                {{$cval.Text}}
-                                <br>
-                                <small><a>Like</a> · <a data-itemKey="$key" data-itemType="Child">Reply</a> · 2
-                                    hrs</small>
-                            </p>
-                        </div>
-                    </div>
-                </article>
-            {{end}}
-        </div>
-    </article>
-{{end}}
-{{if .LoggedIn}}
-    <article class="media">
-        <figure class="media-left">
-            <p class="image is-64x64">
-                <img src="https://www.gravatar.com/avatar/{{.Gravatar}}.jpg">
+                <img src="https://www.gravatar.com/avatar/{{.Data.Gravatar}}?d=identicon">
             </p>
         </figure>
         <div class="media-content">
             <form id="frmComment" role="form">
-                <input type="hidden" id="hdnUserImg" value="{{.Gravatar}}"/>
+                <input type="hidden" id="hdnUserImg" value="{{.Data.Gravatar}}"/>
                 <div class="field">
                     <div class="control">
                         <input type="text" id="txtText" class="input" required placeholder="Add a comment..."></input>
@@ -69,4 +28,49 @@
             <p>Please <a href="/login" class="button is-small is-info needs-login">Login</a> to Comment.</p>
         </div>
     </div>
+{{end}}
+{{ range .Data.Comments.GetRecords.ToSlice}}
+    {{$v := .GetValue}}
+    {{$k := .GetKey}}
+    <article class="media">
+        <figure class="media-left">
+            <p class="image is-64x64">
+                <img src="https://www.gravatar.com/avatar/{{$v.UserImage}}?d=identicon">
+            </p>
+        </figure>
+        <div class="media-content">
+            <div class="content">
+                <p>
+                    <strong>{{$v.Text}}</strong>
+                    <br>
+                    {{$k.GetTimestamp}}
+                    <br>
+                    <!--<small>
+                        <a href="#" class="like" data-itemKey="{{$k}}">Like</a>
+                        <a data-itemKey="{{$k}}" data-itemType="Child">Reply</a>
+                    </small>-->
+                </p>
+            </div>
+            {{ range $ckey, $cval := $v.Children}}
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="image is-48x48">
+                            <img src="https://www.gravatar.com/avatar/{{$cval.UserImage}}?d=identicon">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>{{$cval.Text}}</strong>
+                                <br>
+                                <!--<small><a class="like" data-itemKey="{{$ckey}}">Like</a>
+                                    <a data-itemKey="{{$ckey}}" data-itemType="Child">Reply</a>
+                                </small>-->
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            {{end}}
+        </div>
+    </article>
 {{end}}
