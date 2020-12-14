@@ -1,52 +1,49 @@
 <nav class="navbar is-dark">
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
-            <img src="{{index .Endpoints "artifact"}}/download/{{.Folio.LogoKey}}" alt="{{.Folio.Client}} logo"/>
+            <img src="{{index .Endpoints "artifact"}}/download/{{.Folio.LogoKey}}" alt="{{.Folio.Client}} logo" />
         </a>
-
         <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
             <span></span>
             <span></span>
             <span></span>
         </div>
     </div>
-
     <div id="navbarExampleTransparentExample" class="navbar-menu">
-        <div class="navbar-start">
+        <div class="navbar-start is-lowercase">
             {{range .Menu.Items}}
-                {{if .Children}}
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">{{.Text}}</a>
-                        <div class="navbar-dropdown">
-                            {{range .Children}}
-                                <a class="navbar-item" href="{{.Link}}">
-                                    {{.Text}}
-                                </a>
-                            {{end}}
-                        </div>
-                    </div>
-                {{else}}
+            {{if .Children}}
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">{{.Text}}</a>
+                <div class="navbar-dropdown">
+                    {{range .Children}}
                     <a class="navbar-item" href="{{.Link}}">
                         {{.Text}}
                     </a>
-                {{end}}
+                    {{end}}
+                </div>
+            </div>
+            {{else}}
+            <a class="navbar-item" href="{{.Link}}">
+                {{.Text}}
+            </a>
+            {{end}}
             {{end}}
         </div>
-
         <div class="navbar-end">
             {{if .User}}
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">{{index .User "name"}}</a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">Dashboard</a>
-                        <a class="navbar-item">Profile</a>
-                        <a class="navbar-item">Settings</a>
-                        <hr class="navbar-divider">
-                        <a href="/logout" class="navbar-item">Logout</a>
-                    </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">{{index .User "name"}}</a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item">Dashboard</a>
+                    <a class="navbar-item">Profile</a>
+                    <a class="navbar-item">Settings</a>
+                    <hr class="navbar-divider">
+                    <a href="/logout" class="navbar-item">Logout</a>
                 </div>
+            </div>
             {{else}}
-                <a href="/login" class="navbar-item">Login</a>
+            <a href="/login" class="navbar-item">Login</a>
             {{end}}
         </div>
     </div>
