@@ -1,8 +1,40 @@
+import 'dart:async';
+import 'dart:convert';
 import 'dart:html';
+
+import 'package:mango_ui/requester.dart';
 
 void main() {
   enableTabs();
   enableBurger();
+  monitorToken();
+}
+
+void monitorToken() {
+  new Timer.periodic(new Duration(minutes: 4, seconds: 58), refreshToken);
+}
+
+void refreshToken(Timer timer) {
+  var url = "/refresh";
+
+  invokeService("GET", url, null).then(freshToken);
+}
+
+void freshToken(HttpRequest req) {
+  if (req.status != 200) {
+    print("Failed to Refresh");
+    return;
+  }
+
+  try {
+    String response = req.response.toString();
+    String body = utf8.decode(base64Url.decode(response.replaceAll("\"", "")));
+    Map<String, dynamic> obj = jsonDecode(body);
+
+    window.sessionStorage['client.token'] = obj['access_token'];
+  } catch (exc) {
+    print(exc);
+  }
 }
 
 void enableTabs() {

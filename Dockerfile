@@ -1,20 +1,3 @@
-FROM golang:1.13 as build_base
-
-WORKDIR /box
-
-COPY go.mod .
-COPY go.sum .
-
-RUN go mod download
-
-FROM build_base as builder
-
-COPY cmd/main.go .
-COPY handles ./handles
-COPY core ./core
-
-RUN CGO_ENABLED="0" go build
-
 FROM alpine:3.12.0 AS styler
 
 RUN apk --no-cache add nodejs nodejs-npm
@@ -45,7 +28,7 @@ RUN webdev build
 
 FROM scratch
 
-COPY --from=builder /box/theme .
+COPY cmd/cmd .
 COPY --from=pyltjie /arrow/build/*.dart.js dist/js/
 COPY --from=styler /scissor/dist/css dist/css
 
@@ -55,4 +38,4 @@ COPY assets/ico dist/ico
 
 EXPOSE 8093
 
-ENTRYPOINT [ "./theme" ]
+ENTRYPOINT [ "./cmd" ]
